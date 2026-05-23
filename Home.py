@@ -1,11 +1,10 @@
 <!-- 
 ==================================================================
-NINIS TWUMASI - COMPUTER SCIENCE ESSENTIALS FINAL PORTFOLIO
+NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
 ==================================================================
-This is a single-file, fully responsive academic website.
-It includes all CSS styling (via Tailwind), icons, layout structures, 
-multi-page navigation routing, and interactive CS algorithms in one file.
-Perfect for instant hosting on GitHub Pages!
+* Theme: Premium Gold, Dark Black, and Alabaster White
+* Style: Apple Minimalist Aesthetic
+* Host Compatibility: GitHub Pages (Single-file index.html)
 ==================================================================
 -->
 
@@ -14,13 +13,13 @@ Perfect for instant hosting on GitHub Pages!
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Website title shown in browser tab -->
-    <title>Ninis Twumasi | Elegant CSE Portfolio</title>
+    <title>Ninis Twumasi | Sophomore Portfolio</title>
     
     <!-- 
-      PROCESS: TAILWIND CSS & STYLE CONFIGURATION
-      We import Tailwind CSS to build a beautiful design without writing heavy external CSS.
-      Below, we configure custom 'gold' and 'apple' colors to match your elegant gold-and-white theme.
+      PROCESS: STYLING & DESIGN ARCHITECTURE
+      We import Tailwind CSS to build an ultra-clean, elegant design directly 
+      within our HTML class tags. We configure custom 'gold' and 'apple' 
+      design colors to match Apple's modern minimalist color palette.
     -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -30,20 +29,20 @@ Perfect for instant hosting on GitHub Pages!
                 extend: {
                     colors: {
                         gold: {
-                            50: '#FDFBF7',   // Creamy background white
-                            100: '#F9F6EE',  // Soft alabaster sand
-                            200: '#F3E9CE',  // Champagne gold accent
-                            300: '#EADAA9',  // Warm gold highlights
-                            500: '#D4AF37',  // Premium metallic gold leaf
+                            50: '#FDFBF7',   // Warm alabaster backdrop
+                            100: '#F9F6EE',  // Soft white satin
+                            200: '#F3E9CE',  // Champagne gold sand
+                            300: '#EADAA9',  // Gold satin highlight
+                            500: '#D4AF37',  // Metallic gold leaf
                             600: '#C5A028',  // Burnished satin gold
-                            700: '#A3801A',  // Classic antique gold
-                            900: '#4E3E12',  // Deep gold bronze
-                            950: '#2A2105',  // Dark golden obsidian
+                            700: '#A3801A',  // Classic gold border
+                            900: '#4E3E12',  // Dark gold bronze
+                            950: '#1C1605',  // Dark golden obsidian
                         },
                         apple: {
-                            gray: '#F5F5F7', // Apple standard light-gray
-                            dark: '#08080A', // Premium dark mode background
-                            zinc: '#121215', // Sleek cards for dark mode
+                            gray: '#F5F5F7', // Apple signature gray
+                            dark: '#08080A', // Deep black backing
+                            zinc: '#121215', // Premium dark card containers
                         }
                     },
                     fontFamily: {
@@ -56,26 +55,26 @@ Perfect for instant hosting on GitHub Pages!
         }
     </script>
 
-    <!-- FontAwesome: Used to render high-quality professional vector icons throughout the site -->
+    <!-- FontAwesome: Used to load high-quality vector icons for academic, leadership, and athletic categories -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts: We import Inter (sans-serif) for body text and Playfair Display (serif) for titles -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Playfair Display for headers and Inter for clean, readable body paragraphs -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&swap" rel="stylesheet">
 
     <!-- 
-      PROCESS: CUSTOM TRANSITIONS AND SCROLLBARS
-      We write a tiny embedded CSS block for fluid animations when shuffling backgrounds,
-      and custom golden scrollbars that match the Apple aesthetic.
+      PROCESS: LAYOUT TRANSITIONS & CUSTOM PRINT STYLING
+      * Smooth transitions make background image shuffling feel highly polished.
+      * Media Print Stylesheet optimizes your layout when printing or saving as a PDF 
+        by hiding navigation links, button controls, and footer blocks.
     -->
     <style>
         html {
             scroll-behavior: smooth;
         }
-        /* Smooth transitions for shuffling the hero section backgrounds */
+        /* Fluid transitions for shuffling background images */
         .bg-transition {
-            transition: background-image 1.5s ease-in-out, background-color 0.5s;
+            transition: background-image 1.2s ease-in-out, background-color 0.8s ease-in-out;
         }
-        /* Custom golden scrollbar on desktop viewports */
+        /* Custom sleek golden scrollbars */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -90,106 +89,49 @@ Perfect for instant hosting on GitHub Pages!
             background: #D4AF37;
             border-radius: 10px;
         }
-        /* Soft, luxury ambient glow borders */
+        /* Ambient golden glow effect for showcase items */
         .gold-glow {
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
         }
         .gold-glow:hover {
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.35);
+        }
+
+        /* Standardized Print/PDF output configurations */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            header, footer, .filter-btn, .no-print, #menu-overlay-button {
+                display: none !important;
+            }
+            .page-container {
+                display: block !important;
+                opacity: 1 !important;
+            }
+            .print-full-width {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
         }
     </style>
 </head>
 <body class="bg-gold-50 text-gray-900 dark:bg-apple-dark dark:text-gray-100 font-sans transition-colors duration-300 min-h-screen flex flex-col overflow-x-hidden">
 
-    <!-- 
-      PROCESS: TOP UTILITY LIVE CUSTOMIZER BANNER
-      This bar stays fixed at the top to let teachers or classmates know that they can 
-      live-edit your variables (name, school, classes) right in the web browser!
-    -->
-    <div class="bg-gold-950 text-gold-100 text-xs py-2.5 px-4 flex justify-between items-center z-50 sticky top-0 border-b border-gold-700/30">
-        <div class="flex items-center gap-2">
-            <span class="bg-gold-500 text-apple-dark text-[10px] font-bold px-2 py-0.5 rounded tracking-wide">LIVE EDITOR</span>
-            <span>Customize your details live! Perfect for demonstrating school-appropriate variables.</span>
-        </div>
-        <button onclick="toggleCustomizer()" class="underline hover:text-white font-medium transition text-[11px] flex items-center gap-1">
-            <i class="fa-solid fa-sliders mr-1"></i> Toggle Panel
-        </button>
-    </div>
-
-    <div class="flex flex-1 relative">
-        <!-- 
-          PROCESS: THE LIVE CUSTOMIZER SIDEBAR
-          This panel is shown on large screens by default. It contains a form that listens
-          for any text changes and immediately updates the portfolio's headings live using JavaScript!
-        -->
-        <aside id="customizer" class="w-80 bg-white dark:bg-apple-zinc border-r border-gold-200/40 dark:border-zinc-800 p-6 overflow-y-auto h-[calc(100vh-40px)] sticky top-10 z-40 transition-all duration-300 transform translate-x-0 hidden lg:block custom-scrollbar">
-            <div class="flex justify-between items-center mb-6 border-b border-gold-100 dark:border-zinc-800 pb-4">
-                <h3 class="text-lg font-serif font-bold text-gold-600 dark:text-gold-400 flex items-center gap-2">
-                    <i class="fa-solid fa-sliders text-sm"></i> Live Content Editor
-                </h3>
-                <button onclick="toggleCustomizer()" class="lg:hidden text-gray-400 hover:text-red-500">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-
-            <!-- This form triggers the JS function 'syncCustomizerFields()' every time you type -->
-            <form id="customize-form" oninput="syncCustomizerFields()" class="space-y-5 text-sm">
-                <div>
-                    <label class="block font-semibold mb-1 text-xs uppercase tracking-wider text-gold-600 dark:text-gold-400">First Name</label>
-                    <input type="text" id="input-firstName" value="Ninis" class="w-full bg-gold-50/50 dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 rounded p-2.5 focus:ring-1 focus:ring-gold-500 outline-none transition">
-                </div>
-                <div>
-                    <label class="block font-semibold mb-1 text-xs uppercase tracking-wider text-gold-600 dark:text-gold-400">Last Name</label>
-                    <input type="text" id="input-lastName" value="Twumasi" class="w-full bg-gold-50/50 dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 rounded p-2.5 focus:ring-1 focus:ring-gold-500 outline-none transition">
-                </div>
-                <div>
-                    <label class="block font-semibold mb-1 text-xs uppercase tracking-wider text-gold-600 dark:text-gold-400">Academic Title</label>
-                    <input type="text" id="input-academicTitle" value="Sophomore & CS Student at The Browning School" class="w-full bg-gold-50/50 dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 rounded p-2.5 focus:ring-1 focus:ring-gold-500 outline-none transition">
-                </div>
-                <div>
-                    <label class="block font-semibold mb-1 text-xs uppercase tracking-wider text-gold-600 dark:text-gold-400">School Name</label>
-                    <input type="text" id="input-school" value="The Browning School" class="w-full bg-gold-50/50 dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 rounded p-2.5 focus:ring-1 focus:ring-gold-500 outline-none transition">
-                </div>
-                <div>
-                    <label class="block font-semibold mb-1 text-xs uppercase tracking-wider text-gold-600 dark:text-gold-400">Grade Level</label>
-                    <input type="text" id="input-gradeLevel" value="Sophomore (Class of 2028)" class="w-full bg-gold-50/50 dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 rounded p-2.5 focus:ring-1 focus:ring-gold-500 outline-none transition">
-                </div>
-                <div>
-                    <label class="block font-semibold mb-1 text-xs uppercase tracking-wider text-gold-600 dark:text-gold-400">Work Email Address</label>
-                    <input type="email" id="input-email" value="ntwumasi@browning.edu" class="w-full bg-gold-50/50 dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 rounded p-2.5 focus:ring-1 focus:ring-gold-500 outline-none transition">
-                </div>
-                <div>
-                    <label class="block font-semibold mb-1 text-xs uppercase tracking-wider text-gold-600 dark:text-gold-400">Interests & Hobbies</label>
-                    <input type="text" id="input-hobbies" value="Soccer, Creative Writing, Track, Public Speaking, Community Activism" class="w-full bg-gold-50/50 dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 rounded p-2.5 focus:ring-1 focus:ring-gold-500 outline-none transition">
-                </div>
-                <div>
-                    <label class="block font-semibold mb-1 text-xs uppercase tracking-wider text-gold-600 dark:text-gold-400">Core Career Goal</label>
-                    <input type="text" id="input-careerGoal" value="To leverage storytelling, community engagement, and logic to drive social advocacy." class="w-full bg-gold-50/50 dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 rounded p-2.5 focus:ring-1 focus:ring-gold-500 outline-none transition">
-                </div>
-            </form>
-
-            <div class="mt-6 pt-4 border-t border-gold-200/50 dark:border-zinc-800 space-y-2">
-                <button onclick="resetToDefaults()" class="w-full py-2 border border-gold-300 dark:border-zinc-700 rounded-full hover:bg-gold-100 dark:hover:bg-zinc-800 transition font-medium text-xs text-gold-700 dark:text-gold-400">
-                    Reset Parameters
-                </button>
-                <button onclick="window.print()" class="w-full py-2 bg-gold-500 text-apple-dark rounded-full hover:bg-gold-600 transition font-semibold text-xs flex items-center justify-center gap-1.5 shadow-sm">
-                    <i class="fa-solid fa-print"></i> Export to PDF / Print
-                </button>
-            </div>
-        </aside>
-
-        <!-- Main Workspace containing header, sections, and footer -->
-        <main class="flex-1 flex flex-col min-h-screen">
+    <!-- Main Workspace Container -->
+    <div class="flex flex-1 relative print-full-width">
+        <main class="flex-1 flex flex-col min-h-screen print-full-width">
             
             <!-- 
-              PROCESS: APPLE ELEGANCE MINIMAL NAVIGATION HEADER
-              Sleek, blurred frosted glass header (`backdrop-blur-md`) that adapts 
-              perfectly to both dark mode and light mode.
+              PROCESS: APPLE GLASS NAVIGATION HEADER
+              A sleek frosted glass navigation header that stays sticky at the top 
+              of the viewport and allows users to jump between sections instantly.
             -->
-            <header class="bg-white/90 dark:bg-apple-dark/90 backdrop-blur-md border-b border-gold-200/20 dark:border-zinc-900 sticky top-0 z-30 transition-colors">
+            <header class="bg-white/90 dark:bg-apple-dark/90 backdrop-blur-md border-b border-gold-200/20 dark:border-zinc-900 sticky top-0 z-30 transition-colors no-print">
                 <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
                     <a href="#" onclick="navigateTo('page-home')" class="flex items-center gap-2 font-bold text-lg tracking-tight hover:opacity-85 transition text-gold-600 dark:text-gold-400">
-                        <span class="font-light text-gray-400">&lt;</span><span id="nav-logo-name">Ninis</span><span class="font-light text-gray-400">.js /&gt;</span>
+                        <span class="font-light text-gray-400">&lt;</span><span>Ninis</span><span class="font-light text-gray-400">.js /&gt;</span>
                     </a>
                     
                     <!-- Desktop Header Navigation links -->
@@ -203,19 +145,15 @@ Perfect for instant hosting on GitHub Pages!
                             <a href="#" onclick="navigateTo('page-contact')" class="nav-link hover:text-gold-500 transition duration-300">Contact</a>
                         </nav>
 
-                        <!-- Control buttons on header -->
+                        <!-- Theme & Menu Toggle Buttons -->
                         <div class="flex items-center gap-3 border-l border-gold-200/30 pl-4">
-                            <!-- Toggle for side panel on mobile devices -->
-                            <button onclick="toggleCustomizer()" class="lg:hidden text-gray-400 hover:text-gold-500 p-2 rounded-full hover:bg-gold-100/30" title="Edit Content">
-                                <i class="fa-solid fa-sliders"></i>
-                            </button>
-                            <!-- Light/Dark Mode toggle button -->
-                            <button onclick="toggleDarkMode()" class="text-gray-400 hover:text-gold-500 p-2 rounded-full hover:bg-gold-100/30 transition" title="Change Color Palette">
+                            <!-- Premium Light / Dark mode toggle switch -->
+                            <button onclick="toggleDarkMode()" class="text-gray-400 hover:text-gold-500 p-2 rounded-full hover:bg-gold-100/30 transition">
                                 <i class="fa-solid fa-moon dark:hidden"></i>
                                 <i class="fa-solid fa-sun hidden dark:inline"></i>
                             </button>
-                            <!-- Full page elegant overlay menu button -->
-                            <button onclick="openMenuOverlay()" class="text-gray-700 dark:text-gray-200 hover:text-gold-500 p-2 rounded-full hover:bg-gold-100/30 transition flex items-center gap-1.5">
+                            <!-- Apple Full Screen minimalist menu button -->
+                            <button id="menu-overlay-button" onclick="openMenuOverlay()" class="text-gray-700 dark:text-gray-200 hover:text-gold-500 p-2 rounded-full hover:bg-gold-100/30 transition flex items-center gap-1.5">
                                 <span class="text-[10px] font-bold tracking-widest uppercase hidden sm:inline">Menu</span>
                                 <i class="fa-solid fa-bars-staggered text-lg"></i>
                             </button>
@@ -225,11 +163,11 @@ Perfect for instant hosting on GitHub Pages!
             </header>
 
             <!-- 
-              PROCESS: FULL-PAGE OVERLAY MENU (COVERING THE PAGE ITS ON)
-              As requested, this is a premium full-screen layout built on a blurred glass element
-              which pops over the current viewport when 'Menu' is clicked.
+              PROCESS: FULL-PAGE OVERLAY MENU
+              Covers the page it is on with a sleek blurred glass backdrop. 
+              Provides a beautiful navigation experience.
             -->
-            <div id="full-menu-overlay" class="fixed inset-0 bg-white/98 dark:bg-apple-dark/98 backdrop-blur-2xl z-50 flex flex-col justify-between p-8 transition-all duration-500 opacity-0 pointer-events-none scale-95">
+            <div id="full-menu-overlay" class="fixed inset-0 bg-white/98 dark:bg-apple-dark/98 backdrop-blur-2xl z-50 flex flex-col justify-between p-8 transition-all duration-500 opacity-0 pointer-events-none scale-95 no-print">
                 <div class="flex justify-between items-center max-w-6xl w-full mx-auto">
                     <span class="font-bold text-xl tracking-tight text-gold-600 dark:text-gold-400 font-mono">&lt;Ninis.js /&gt;</span>
                     <button onclick="closeMenuOverlay()" class="w-12 h-12 rounded-full border border-gold-200/50 dark:border-zinc-850 flex items-center justify-center text-gray-500 hover:text-gold-500 dark:hover:text-gold-400 transition hover:rotate-90">
@@ -237,8 +175,8 @@ Perfect for instant hosting on GitHub Pages!
                     </button>
                 </div>
 
-                <!-- Main elegant menu links within overlay -->
-                <nav class="flex flex-col items-center justify-center space-y-6 text-center my-auto">
+                <!-- Vertical navigation list inside overlay -->
+                <nav class="flex flex-col items-center justify-center space-y-6 text-center my-auto font-sans">
                     <span class="text-[11px] font-bold text-gold-500 uppercase tracking-widest mb-2">Select Page Module</span>
                     <a href="#" onclick="navigateTo('page-home')" class="text-4xl sm:text-6xl font-serif font-light text-gray-800 dark:text-gray-100 hover:text-gold-500 transition tracking-tight">01 / Home</a>
                     <a href="#" onclick="navigateTo('page-about')" class="text-4xl sm:text-6xl font-serif font-light text-gray-800 dark:text-gray-100 hover:text-gold-500 transition tracking-tight">02 / About Me</a>
@@ -248,93 +186,77 @@ Perfect for instant hosting on GitHub Pages!
                     <a href="#" onclick="navigateTo('page-contact')" class="text-4xl sm:text-6xl font-serif font-light text-gray-800 dark:text-gray-100 hover:text-gold-500 transition tracking-tight">06 / Contact Hub</a>
                 </nav>
 
-                <div class="text-center text-xs text-gray-400 max-w-xl mx-auto space-y-2">
-                    <p class="font-mono text-gold-600">Pure, Lightweight HTML, CSS, and JS. Ready for GitHub Pages.</p>
+                <div class="text-center text-xs text-gray-400 max-w-xl mx-auto space-y-2 font-sans">
+                    <p class="font-mono text-gold-600">Pure HTML, CSS, and JS. Ready for GitHub Pages.</p>
                     <p>&copy; 2026 Ninis. All Rights Reserved.</p>
                 </div>
             </div>
 
-            <!-- 
-              PROCESS: PAGE 1 (HOME PAGE SECTION)
-              This section is active by default. It includes a dynamic background shuffle,
-              introducing Ninis with modern clean typography and a responsive layout.
-            -->
-            <section id="page-home" class="page-container flex-1 bg-transition relative flex items-center py-16 md:py-28 min-h-[85vh]">
+            <!-- PAGE 1: HOME PAGE (Active by default) -->
+            <section id="page-home" class="page-container flex-1 bg-transition relative flex items-center py-16 md:py-28 min-h-[85vh] bg-gold-50 dark:bg-apple-dark">
+                
+                <!-- Glowing Golden "NT" Monogram Overlay (Option 4 is black background with gold "NT") -->
+                <div id="nt-monogram-bg" class="absolute inset-0 bg-black flex flex-col items-center justify-center pointer-events-none opacity-0 transition-opacity duration-1000 no-print z-0">
+                    <div class="w-48 h-48 rounded-full border border-gold-500/20 flex items-center justify-center shadow-[0_0_50px_rgba(212,175,55,0.1)]">
+                        <span class="font-serif font-light text-7xl tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-500 to-gold-600 drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">NT</span>
+                    </div>
+                    <span class="text-[10px] text-gold-500/60 font-mono tracking-[0.25em] uppercase mt-4">Ninis Twumasi Portfolio</span>
+                </div>
+
+                <!-- Inner Content Container -->
                 <div class="max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-                    <div class="lg:col-span-7 space-y-6">
-                        <div class="inline-flex items-center gap-2 bg-gold-100/80 dark:bg-gold-950/20 text-gold-700 dark:text-gold-400 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border border-gold-200/50">
+                    
+                    <!-- Hero Information Text -->
+                    <div class="lg:col-span-7 space-y-6" id="hero-text-block">
+                        <div class="inline-flex items-center gap-2 bg-white/90 dark:bg-gold-950/20 text-gold-700 dark:text-gold-400 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border border-gold-200/50">
                             <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
-                            Sophomore Portfolio
+                            Browning Sophomore
                         </div>
                         <h1 class="text-5xl sm:text-7xl font-serif font-light tracking-tight leading-none text-gray-900 dark:text-white">
-                            Hi, I am <br><span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-gold-700 display-firstName">Ninis</span> <span class="display-lastName">Twumasi</span>
+                            Hi, I am <br><span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-gold-700">Ninis</span> Twumasi
                         </h1>
-                        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 font-light display-academicTitle tracking-wide">
+                        <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 font-light tracking-wide">
                             Sophomore &amp; CS Student at The Browning School
                         </p>
-                        <p class="text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl text-sm font-light">
-                            Welcome to My Website! This platform is 100% designed and coded by me to reflect who I am—a 15-year-old student from Manhattan, NYC, doing my best to make a lasting impact both in and out of the classroom.
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl text-sm font-light">
+                            Welcome to my personal archive. This platform represents who I am, a 15-year-old student from Manhattan, NYC, doing my best to make an impact both in and out of the classroom.
                         </p>
-                        <div class="flex flex-wrap gap-4 pt-4">
-                            <button onclick="navigateTo('page-about')" class="px-8 py-3.5 bg-gold-500 hover:bg-gold-600 text-apple-dark text-xs font-bold uppercase tracking-wider rounded-full shadow-lg hover:shadow-gold-500/20 transition flex items-center gap-2">
+                        
+                        <!-- Hero Actions -->
+                        <div class="flex flex-wrap gap-4 pt-4 no-print">
+                            <button onclick="navigateTo('page-about')" class="px-8 py-3.5 bg-gold-500 hover:bg-gold-600 text-apple-dark text-xs font-bold uppercase tracking-wider rounded-full shadow-lg hover:shadow-gold-500/20 transition flex items-center gap-2 font-sans">
                                 Explore About Me <i class="fa-solid fa-arrow-right"></i>
                             </button>
-                            <!-- This button calls Javascript to pick a random luxury gold texture as background -->
-                            <button onclick="shuffleBackground()" class="px-6 py-3.5 bg-white/85 dark:bg-zinc-900/85 backdrop-blur text-gold-600 dark:text-gold-400 border border-gold-200 dark:border-zinc-800 hover:border-gold-500 text-xs font-bold uppercase tracking-wider rounded-full transition flex items-center gap-2 shadow-sm">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i> Shuffle Background
+                            <button onclick="shuffleBackground()" class="px-6 py-3.5 bg-white/90 dark:bg-zinc-900/90 backdrop-blur text-gold-600 dark:text-gold-400 border border-gold-200 dark:border-zinc-800 hover:border-gold-500 text-xs font-bold uppercase tracking-wider rounded-full transition flex items-center gap-2 shadow-sm font-sans">
+                                <i class="fa-solid fa-wand-magic-sparkles animate-spin-slow"></i> Shuffle Background
                             </button>
                         </div>
                     </div>
 
-                    <!-- 
-                      PROCESS: INTERACTIVE PYTHON CONSOLE TERMINAL
-                      Provides a visual interface running mock terminal scripts.
-                    -->
-                    <div class="lg:col-span-5 w-full">
-                        <div class="bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-2xl border border-gold-200/30 dark:border-zinc-800/80 flex flex-col font-mono text-xs sm:text-sm">
-                            <div class="bg-gold-100/40 dark:bg-zinc-900/60 px-4 py-3 flex justify-between items-center border-b border-gold-200/20 dark:border-zinc-800">
-                                <div class="flex gap-2">
-                                    <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-green-400"></span>
+                    <!-- Right Portrait Picture Frame -->
+                    <div class="lg:col-span-5 w-full flex justify-center z-10" id="hero-image-block">
+                        <div class="relative group max-w-sm w-full">
+                            <div class="absolute -inset-1.5 bg-gradient-to-tr from-gold-400 via-gold-200 to-white rounded-3xl blur opacity-30 group-hover:opacity-45 transition duration-1000"></div>
+                            <div class="relative bg-white dark:bg-zinc-950 p-3 rounded-3xl border border-gold-200/30 dark:border-zinc-800/80 shadow-2xl">
+                                <div class="aspect-square w-full rounded-2xl overflow-hidden bg-gold-100/50 dark:bg-zinc-900 relative">
+                                    <!-- Displays Ninis' uploaded image -->
+                                    <img src="IMG_0594 Small.jpeg" alt="Ninis Twumasi Portrait" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                    <!-- Fallback design icon if local file isn't loaded -->
+                                    <div class="hidden absolute inset-0 flex items-center justify-center bg-zinc-900">
+                                        <i class="fa-solid fa-user-tie text-gold-500 text-6xl"></i>
+                                    </div>
+                                    <div class="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur-md rounded-xl p-3 border border-white/10 text-white text-xs font-sans">
+                                        <p class="font-semibold tracking-wide text-gold-400 text-xs">The Browning School</p>
+                                        <p class="text-[10px] text-zinc-300 font-mono mt-0.5">Manhattan, NYC</p>
+                                    </div>
                                 </div>
-                                <span class="text-gray-400 font-semibold text-[10px] tracking-wider uppercase font-sans">
-                                    <i class="fa-brands fa-python text-gold-500 mr-1"></i> console.py
-                                </span>
-                                <span class="w-6"></span>
-                            </div>
-                            <div class="p-6 space-y-4 text-gold-700 dark:text-gold-400 bg-white/50 dark:bg-zinc-950/30">
-                                <div>
-                                    <span class="text-purple-600 dark:text-purple-400">class</span> <span class="text-gold-600 dark:text-gold-200">Portfolio</span>:
-                                </div>
-                                <div class="pl-4">
-                                    <span class="text-purple-600 dark:text-purple-400">def</span> <span class="text-gold-600 dark:text-gold-200">__init__</span>(<span class="text-gray-500">self</span>):
-                                </div>
-                                <div class="pl-8 text-gray-500 dark:text-zinc-500">
-                                    <span class="text-gray-400">self</span>.owner = <span class="text-green-600 dark:text-green-400">"<span class="display-fullName">Ninis Twumasi</span>"</span><br>
-                                    <span class="text-gray-400">self</span>.age = <span class="text-green-600 dark:text-green-400">15</span><br>
-                                    <span class="text-gray-400">self</span>.school = <span class="text-green-600 dark:text-green-400">"The Browning School"</span>
-                                </div>
-                                <div class="border-t border-gold-200/20 dark:border-zinc-850 pt-3 text-[10px] text-gray-400 font-sans">
-                                    # Click run button below to execute dynamic Javascript console simulation
-                                </div>
-                                <div class="bg-gold-50/50 dark:bg-zinc-900/50 p-3 rounded-xl border border-gold-200/20 dark:border-zinc-800 text-xs">
-                                    <div id="py-output" class="text-gray-700 dark:text-gray-300">Press button below to execute logic parameters...</div>
-                                </div>
-                                <button onclick="executePyDemo()" class="w-full py-2 bg-gold-500 hover:bg-gold-600 text-apple-dark text-xs font-semibold uppercase tracking-wider rounded-lg transition font-sans">
-                                    Run Console Simulation
-                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 
-              PROCESS: PAGE 2 (ABOUT ME SECTION)
-              This section displays your comprehensive biography, including your sophomore 
-              status at Browning, extracurricular interests, and community recovery activism.
-            -->
+            <!-- PAGE 2: ABOUT ME -->
             <section id="page-about" class="page-container flex-1 py-20 bg-white dark:bg-apple-dark transition-colors hidden">
                 <div class="max-w-6xl mx-auto px-6">
                     <div class="text-center max-w-2xl mx-auto mb-16">
@@ -344,30 +266,28 @@ Perfect for instant hosting on GitHub Pages!
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-                        <!-- Left: Elegant Avatar visual -->
+                        <!-- Left Image Frame -->
                         <div class="md:col-span-5 flex flex-col items-center">
-                            <div class="relative group">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-gold-300 to-gold-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+                            <div class="relative group w-full max-w-xs">
+                                <div class="absolute -inset-1 bg-gradient-to-r from-gold-300 to-gold-600 rounded-2xl blur opacity-35 transition duration-1000"></div>
                                 <div class="relative bg-white dark:bg-zinc-900 p-2 rounded-2xl border border-gold-200/50 dark:border-zinc-800">
-                                    <div class="w-64 h-64 bg-gold-100/50 dark:bg-zinc-800/50 rounded-xl overflow-hidden flex items-center justify-center relative border border-gold-200/30">
-                                        <svg class="w-32 h-32 text-gold-500/80" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                                        </svg>
-                                        <div class="absolute bottom-4 bg-white/90 dark:bg-zinc-900/90 backdrop-blur text-gold-600 dark:text-gold-400 text-[9px] uppercase font-bold py-1.5 px-3.5 rounded-full border border-gold-200/50 dark:border-zinc-700 font-mono tracking-wider">
-                                            Browning Sophomore
+                                    <div class="aspect-square w-full bg-gold-100/50 dark:bg-zinc-850 rounded-xl overflow-hidden relative">
+                                        <img src="IMG_1053 Small.jpeg" alt="Ninis Twumasi Portrait" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                        <div class="hidden absolute inset-0 flex items-center justify-center bg-zinc-905">
+                                            <i class="fa-solid fa-graduation-cap text-gold-500 text-5xl"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Right: Detailed school biography (with strict academic alignment) -->
+                        <!-- Right Biography details -->
                         <div class="md:col-span-7 space-y-6">
                             <h3 class="text-2xl font-serif font-light text-gray-800 dark:text-gray-200 tracking-wide">
                                 Manhattan Student &amp; Community Advocate
                             </h3>
-                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed font-light text-sm display-aboutBio">
-                                This website is coded 100% by me and is a reflection of who I am, a 15-year-old student from Manhattan, NYC, doing my best to make an impact both in and out of the classroom. I'm currently a sophomore at The Browning School, where I stay busy between classes, soccer, track, and everything in between. Community is at the core of who I am. When asked about me in a few words to describe me, I am called kind-hearted, charismatic, persistent, driven, and determined. Whenever I am motivated about something, I always see it through. In addition, whenever someone needs me, I am always there for them.
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed font-light text-sm">
+                                Welcome to My Website! This website is coded 100% by me and is a reflection of who I am, a 15-year-old student from Manhattan, NYC, doing my best to make an impact both in and out of the classroom. I'm currently a sophomore at The Browning School, where I stay busy between classes, soccer, track, and everything in between. Community is at the core of who I am. When asked about me in a few words to describe me, I am called kind-hearted, charismatic, persistent, driven, and determined. Whenever I am motivated about something, I always see it through. In addition, whenever someone needs me, I am always there for them.
                             </p>
                             <p class="text-gray-600 dark:text-gray-300 leading-relaxed font-light text-sm">
                                 As a student at Browning, I feel a real responsibility to use the opportunities I've been given to give back. Whether that's through founding Browning's Food Recovery Program with Grassroots Grocery, representing the Black Student Coalition across NYC, or showing up to local fundraisers and charity events, I believe giving back isn't something I do on the side; it's an important part of who I am.
@@ -381,7 +301,7 @@ Perfect for instant hosting on GitHub Pages!
                                     <h4 class="font-semibold text-xs uppercase tracking-wider text-gold-600 dark:text-gold-400 flex items-center gap-2 mb-2">
                                         <i class="fa-solid fa-gamepad"></i> Hobbies &amp; Interests
                                     </h4>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400 display-hobbies leading-relaxed font-light">
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light">
                                         Soccer, Creative Writing, Track, Public Speaking, Community Activism
                                     </p>
                                 </div>
@@ -389,7 +309,7 @@ Perfect for instant hosting on GitHub Pages!
                                     <h4 class="font-semibold text-xs uppercase tracking-wider text-gold-600 dark:text-gold-400 flex items-center gap-2 mb-2">
                                         <i class="fa-solid fa-bullseye"></i> Core Career Goal
                                     </h4>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400 display-careerGoal leading-relaxed font-light">
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light">
                                         To leverage storytelling, community engagement, and logic to drive social advocacy.
                                     </p>
                                 </div>
@@ -399,146 +319,172 @@ Perfect for instant hosting on GitHub Pages!
                 </div>
             </section>
 
-            <!-- 
-              PROCESS: PAGE 3 (RESUME SECTION)
-              Fulfills the rubric criteria for a clear academic resume styling.
-              Includes school, grade level, and coursework, plus your role at Camp KenMont.
-            -->
+            <!-- PAGE 3: RESUME PAGE -->
             <section id="page-resume" class="page-container flex-1 py-20 bg-gold-100/30 dark:bg-apple-dark/60 transition-colors hidden">
                 <div class="max-w-6xl mx-auto px-6">
-                    <div class="text-center max-w-2xl mx-auto mb-16">
+                    <div class="text-center max-w-2xl mx-auto mb-12">
                         <span class="text-[10px] font-bold text-gold-500 uppercase tracking-widest">Academic & Activity Curriculum</span>
                         <h2 class="text-4xl font-serif font-light tracking-tight text-gray-900 dark:text-white mt-2">Resume & Experience</h2>
                         <div class="w-12 h-[2px] bg-gold-400 mx-auto rounded mt-3"></div>
-                        <p class="text-sm text-gray-400 mt-2">Dedicated and driven student with strong communication and problem-solving skills.</p>
+                        <p class="text-sm text-gray-400 mt-2">Sophomore at The Browning School, Dedicated to academic excellence and leadership.</p>
+                        
+                        <!-- Print styling trigger button for keeping a PDF form -->
+                        <div class="mt-6 flex justify-center no-print">
+                            <button onclick="window.print()" class="px-6 py-2.5 bg-gold-500 hover:bg-gold-600 text-apple-dark font-semibold text-xs rounded-full uppercase tracking-wider shadow-md transition duration-300 flex items-center gap-2 font-sans">
+                                <i class="fa-solid fa-file-pdf"></i> Keep / Save PDF Resume
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        <!-- Column 1: Education & Work Experience -->
-                        <div class="space-y-6">
+                    <!-- Highlighted Group Spotlight: Black Student Coalition NYC Representative -->
+                    <div class="mb-12 bg-white dark:bg-apple-zinc border border-gold-200/40 dark:border-zinc-800 rounded-3xl p-6 lg:p-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-5 rounded-2xl overflow-hidden relative shadow-md aspect-[4/3] bg-zinc-900">
+                            <!-- Group image source configured with user uploaded file -->
+                            <img src="IMG_1936.jpg" alt="Black Student Coalition NYC group" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                            <div class="hidden absolute inset-0 flex items-center justify-center bg-zinc-900 text-gold-500">
+                                <i class="fa-solid fa-users text-5xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:col-span-7 space-y-4 font-sans">
+                            <span class="inline-block bg-gold-100 dark:bg-gold-950/40 text-gold-700 dark:text-gold-400 text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-gold-200/20">Featured Coalition Spotlight</span>
+                            <h3 class="text-xl font-serif font-semibold text-gray-900 dark:text-white">Black Student Coalition NYC Representative</h3>
+                            <p class="text-xs text-gray-500 dark:text-zinc-400 leading-relaxed font-light">
+                                Serve as Browning’s representative to the Black Student Coalition NYC, an organization connecting Black students across New York City. Promote Black culture, encourage meaningful discussions, and help build a supportive and empowering community among students.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <!-- Left Timeline -->
+                        <div class="lg:col-span-8 space-y-8">
                             <div class="bg-white dark:bg-apple-zinc p-8 rounded-2xl shadow-sm border border-gold-200/30 dark:border-zinc-850">
-                                <div class="flex items-center gap-3 border-b border-gold-100 dark:border-zinc-800 pb-3 mb-4">
-                                    <span class="bg-gold-100 dark:bg-zinc-800 text-gold-600 dark:text-gold-400 w-10 h-10 rounded-full flex items-center justify-center text-md">
-                                        <i class="fa-solid fa-graduation-cap"></i>
-                                    </span>
-                                    <div>
-                                        <h3 class="font-semibold text-base">Education</h3>
-                                        <p class="text-[9px] text-gray-400 uppercase tracking-widest font-mono">Schooling timeline</p>
+                                <h3 class="font-serif font-bold text-lg text-gold-600 dark:text-gold-400 border-b border-gold-100 dark:border-zinc-800 pb-3 mb-6 flex items-center gap-2">
+                                    <i class="fa-solid fa-scroll text-sm"></i> Leadership &amp; Clubs
+                                </h3>
+
+                                <div class="relative border-l-2 border-gold-200 dark:border-zinc-800 ml-2 pl-6 space-y-8 font-sans">
+                                    <!-- JV Soccer Captain -->
+                                    <div class="relative animate-fade-in">
+                                        <span class="absolute -left-[31px] top-1.5 bg-gold-500 w-4 h-4 rounded-full border-4 border-white dark:border-apple-zinc"></span>
+                                        <span class="text-[10px] font-mono font-bold text-gold-600 dark:text-gold-400 uppercase tracking-widest">2025</span>
+                                        <h4 class="font-semibold text-sm text-gray-900 dark:text-white mt-1">Soccer JV Captain</h4>
+                                        <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 leading-relaxed">
+                                            I played competitive soccer for over six years, developing strong teamwork, communication, and leadership skills. Served as JV Captain, helping lead practices, motivate teammates, and promote collaboration on and off the field.
+                                        </p>
+                                    </div>
+
+                                    <!-- Browning Food Recovery Program -->
+                                    <div class="relative">
+                                        <span class="absolute -left-[31px] top-1.5 bg-gold-500 w-4 h-4 rounded-full border-4 border-white dark:border-apple-zinc"></span>
+                                        <span class="text-[10px] font-mono font-bold text-gold-600 dark:text-gold-400 uppercase tracking-widest">Founder</span>
+                                        <h4 class="font-semibold text-sm text-gray-900 dark:text-white mt-1">Founder, Browning Food Recovery Program with Grassroots Grocery</h4>
+                                        <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 leading-relaxed">
+                                            Founded Browning’s Food Recovery Program in partnership with Grassroots Grocery to help combat food insecurity. Worked to redirect unused resources toward supporting communities in need and promoting service within the Browning community.
+                                        </p>
+                                    </div>
+
+                                    <!-- Chief Editor -->
+                                    <div class="relative">
+                                        <span class="absolute -left-[31px] top-1.5 bg-gold-500 w-4 h-4 rounded-full border-4 border-white dark:border-apple-zinc"></span>
+                                        <span class="text-[10px] font-mono font-bold text-gold-600 dark:text-gold-400 uppercase tracking-widest">2021 – 2024</span>
+                                        <h4 class="font-semibold text-sm text-gray-900 dark:text-white mt-1">Chief Editor, Middle School Newspaper</h4>
+                                        <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 leading-relaxed">
+                                            Founded and led Browning’s Middle School newspaper out of a passion for storytelling and sharing information with the community. Oversaw article creation, editing, and publication while encouraging student voices and school engagement.
+                                        </p>
+                                    </div>
+
+                                    <!-- All-School Green Team -->
+                                    <div class="relative">
+                                        <span class="absolute -left-[31px] top-1.5 bg-gold-500 w-4 h-4 rounded-full border-4 border-white dark:border-apple-zinc"></span>
+                                        <span class="text-[10px] font-mono font-bold text-gold-600 dark:text-gold-400 uppercase tracking-widest">2022 – 2024</span>
+                                        <h4 class="font-semibold text-sm text-gray-900 dark:text-white mt-1">All-School Green Team Leadership</h4>
+                                        <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 leading-relaxed">
+                                            Helped lead environmental initiatives aimed at making Browning a more sustainable and environmentally conscious community. Organized fundraisers and promoted projects focused on environmental awareness and positive change within the school.
+                                        </p>
+                                    </div>
+
+                                    <!-- Class Representative -->
+                                    <div class="relative">
+                                        <span class="absolute -left-[31px] top-1.5 bg-gold-500 w-4 h-4 rounded-full border-4 border-white dark:border-apple-zinc"></span>
+                                        <span class="text-[10px] font-mono font-bold text-gold-600 dark:text-gold-400 uppercase tracking-widest">2025</span>
+                                        <h4 class="font-semibold text-sm text-gray-900 dark:text-white mt-1">Class Representative</h4>
+                                        <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 leading-relaxed">
+                                            Represented my grade by advocating for student voices and communicating student concerns and ideas. Strengthened my leadership, public speaking, and self-advocacy skills while learning how to handle feedback and rejection constructively.
+                                        </p>
+                                    </div>
+
+                                    <!-- Student Council -->
+                                    <div class="relative">
+                                        <span class="absolute -left-[31px] top-1.5 bg-gold-500 w-4 h-4 rounded-full border-4 border-white dark:border-apple-zinc"></span>
+                                        <span class="text-[10px] font-mono font-bold text-gold-600 dark:text-gold-400 uppercase tracking-widest">2021 – 2024</span>
+                                        <h4 class="font-semibold text-sm text-gray-900 dark:text-white mt-1">Middle School Student Council</h4>
+                                        <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 leading-relaxed">
+                                            Participated in Student Council to help represent the middle school community and contribute to school improvement efforts. Assisted with community service initiatives, student events, and projects designed to strengthen school spirit and engagement.
+                                        </p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column Timelines -->
+                        <div class="lg:col-span-4 space-y-6">
+                            <!-- Education Card -->
+                            <div class="bg-white dark:bg-apple-zinc p-6 rounded-2xl shadow-sm border border-gold-200/30 dark:border-zinc-850">
+                                <h3 class="font-serif font-bold text-base text-gold-600 dark:text-gold-400 border-b border-gold-100 dark:border-zinc-800 pb-2 mb-4 flex items-center gap-2">
+                                    <i class="fa-solid fa-graduation-cap"></i> Education
+                                </h3>
                                 <div class="relative pl-4 border-l-2 border-gold-500 py-1">
-                                    <h4 class="font-semibold text-sm display-school">The Browning School</h4>
-                                    <p class="text-xs text-gray-500 mt-0.5 font-mono">2021 – 2026</p>
-                                    <p class="text-xs text-gray-400 mt-1 font-mono text-[10px]">Sophomore (Class of 2028)</p>
-                                    <p class="text-xs text-gray-400 mt-2">Nurturing academic curiosity, community stewardship, and leadership.</p>
+                                    <h4 class="font-semibold text-sm">The Browning School</h4>
+                                    <p class="text-xs text-gray-400 font-mono">Sophomore (Class of 2028)</p>
+                                    <p class="text-xs text-gray-500 mt-1">Browning Enrollment: 2021–2026</p>
                                 </div>
                             </div>
 
-                            <div class="bg-white dark:bg-apple-zinc p-8 rounded-2xl shadow-sm border border-gold-200/30 dark:border-zinc-850">
-                                <div class="flex items-center gap-3 border-b border-gold-100 dark:border-zinc-800 pb-3 mb-4">
-                                    <span class="bg-gold-100 dark:bg-zinc-800 text-gold-600 dark:text-gold-400 w-10 h-10 rounded-full flex items-center justify-center text-md">
-                                        <i class="fa-solid fa-briefcase"></i>
-                                    </span>
-                                    <div>
-                                        <h3 class="font-semibold text-base">Work Experience</h3>
-                                        <p class="text-[9px] text-gray-400 uppercase tracking-widest font-mono">Employment</p>
-                                    </div>
-                                </div>
+                            <!-- Summer Counselor Job Card -->
+                            <div class="bg-white dark:bg-apple-zinc p-6 rounded-2xl shadow-sm border border-gold-200/30 dark:border-zinc-850">
+                                <h3 class="font-serif font-bold text-base text-gold-600 dark:text-gold-400 border-b border-gold-100 dark:border-zinc-800 pb-2 mb-4 flex items-center gap-2">
+                                    <i class="fa-solid fa-briefcase"></i> Experience
+                                </h3>
                                 <div class="relative pl-4 border-l-2 border-gold-500 py-1">
                                     <h4 class="font-semibold text-sm">Camp Counselor</h4>
-                                    <p class="text-xs text-gray-500 font-semibold font-mono">Camp KenMont and KenWood</p>
+                                    <p class="text-xs text-gray-500 font-mono font-bold">Camp KenMont and KenWood</p>
                                     <p class="text-xs text-gray-400 font-mono">Summer 2026</p>
-                                    <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-                                        Serving as a Camp Counselor from July 19th to August 16th. Having attended the camp for the past two years, I look forward to giving back to the community that has positively impacted me. This experience will allow me to develop leadership, responsibility, and mentorship skills while working closely with children in a team-oriented environment.
+                                    <p class="text-xs text-gray-400 mt-2 leading-relaxed text-xs">
+                                        I will be serving as a Camp Counselor at Camp KenMont and KenWood from July 19th to August 16th. Having attended the camp for the past two years, I look forward to giving back to the community that has positively impacted me. This experience will allow me to develop leadership, responsibility, and mentorship skills while working closely with children in a team-oriented environment.
                                     </p>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Column 2: Leadership & Advocacy Roles -->
-                        <div class="space-y-6">
-                            <div class="bg-white dark:bg-apple-zinc p-8 rounded-2xl shadow-sm border border-gold-200/30 dark:border-zinc-850">
-                                <div class="flex items-center gap-3 border-b border-gold-100 dark:border-zinc-800 pb-3 mb-4">
-                                    <span class="bg-gold-100 dark:bg-zinc-800 text-gold-600 dark:text-gold-400 w-10 h-10 rounded-full flex items-center justify-center text-md">
-                                        <i class="fa-solid fa-users-gear"></i>
-                                    </span>
-                                    <div>
-                                        <h3 class="font-semibold text-base">Leadership Roles</h3>
-                                        <p class="text-[9px] text-gray-400 uppercase tracking-widest font-mono">Student Advocacy</p>
-                                    </div>
-                                </div>
-
-                                <div class="space-y-5">
-                                    <div class="relative pl-4 border-l border-gold-500">
-                                        <h4 class="font-semibold text-xs">Soccer JV Captain (2025)</h4>
-                                        <p class="text-[11px] text-gray-400 mt-1 leading-relaxed">
-                                            Played competitive soccer for over six years, developing strong teamwork, communication, and leadership. Served as JV Captain, helping lead practices and motivate teammates.
-                                        </p>
-                                    </div>
-                                    <div class="relative pl-4 border-l border-gold-500">
-                                        <h4 class="font-semibold text-xs">Black Student Coalition NYC Rep (2025–2026)</h4>
-                                        <p class="text-[11px] text-gray-400 mt-1 leading-relaxed">
-                                            Serve as Browning's representative to connect Black students across New York City. Promote Black culture, encourage meaningful discussions, and help build a supportive and empowering community.
-                                        </p>
-                                    </div>
-                                    <div class="relative pl-4 border-l border-gold-500">
-                                        <h4 class="font-semibold text-xs">Founder, Browning Food Recovery Program</h4>
-                                        <p class="text-[11px] text-gray-400 mt-1 leading-relaxed">
-                                            Founded the food recovery program in partnership with Grassroots Grocery to combat food insecurity and redirect unused resources toward supporting local communities.
-                                        </p>
-                                    </div>
-                                    <div class="relative pl-4 border-l border-gold-500">
-                                        <h4 class="font-semibold text-xs">Chief Editor, MS Newspaper (2021–2024)</h4>
-                                        <p class="text-[11px] text-gray-400 mt-1 leading-relaxed">
-                                            Founded and led Browning’s Middle School newspaper out of a passion for storytelling and sharing information. Oversaw article creation, editing, and publication.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Column 3: Organizations & Academic Pursuits -->
-                        <div class="space-y-6">
-                            <div class="bg-white dark:bg-apple-zinc p-8 rounded-2xl shadow-sm border border-gold-200/30 dark:border-zinc-850">
-                                <div class="flex items-center gap-3 border-b border-gold-100 dark:border-zinc-800 pb-3 mb-4">
-                                    <span class="bg-gold-100 dark:bg-zinc-800 text-gold-600 dark:text-gold-400 w-10 h-10 rounded-full flex items-center justify-center text-md">
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <div>
-                                        <h3 class="font-semibold text-base">Clubs &amp; Pursuits</h3>
-                                        <p class="text-[9px] text-gray-400 uppercase tracking-widest font-mono">Academic Engagement</p>
-                                    </div>
-                                </div>
-
-                                <div class="space-y-5">
-                                    <div class="relative pl-4 border-l border-gold-500">
-                                        <h4 class="font-semibold text-xs">Time for Kids Reporter (2023–2024)</h4>
-                                        <p class="text-[11px] text-gray-400 mt-1">Contributed articles focused on current events and topics I am passionate about in order to spread awareness and inform readers. Strengthened my writing and journalism.</p>
-                                    </div>
-                                    <div class="relative pl-4 border-l border-gold-500">
-                                        <h4 class="font-semibold text-xs">Mock Trial (2023–2026)</h4>
-                                        <p class="text-[11px] text-gray-400 mt-1">Developed skills in public speaking, reasoning, advocacy, and critical thinking. Learned how to build arguments and present confidently under pressure.</p>
-                                    </div>
-                                    <div class="relative pl-4 border-l border-gold-500">
-                                        <h4 class="font-semibold text-xs">Debate Team (2024–2026)</h4>
-                                        <p class="text-[11px] text-gray-400 mt-1">Competed in debates focused on argumentation, public speaking, and analytical reasoning. Improved my ability to think critically and defend positions.</p>
-                                    </div>
-                                    <div class="relative pl-4 border-l border-gold-500">
-                                        <h4 class="font-semibold text-xs">Varsity Indoor/Outdoor Track (2025–2026)</h4>
-                                        <p class="text-[11px] text-gray-400 mt-1">Competed while focusing on discipline, perseverance, and personal growth. Worked toward improving performance and maintaining physical fitness.</p>
-                                    </div>
-                                </div>
+                            <!-- Academic Pursuits and Clubs Card -->
+                            <div class="bg-white dark:bg-apple-zinc p-6 rounded-2xl shadow-sm border border-gold-200/30 dark:border-zinc-850">
+                                <h3 class="font-serif font-bold text-base text-gold-600 dark:text-gold-400 border-b border-gold-100 dark:border-zinc-800 pb-2 mb-4 flex items-center gap-2">
+                                    <i class="fa-solid fa-bookmark"></i> Academic Clubs
+                                </h3>
+                                <ul class="space-y-4 text-xs font-sans">
+                                    <li class="border-b border-gold-100 dark:border-zinc-800 pb-2 last:border-b-0 last:pb-0">
+                                        <p class="font-semibold text-gray-900 dark:text-white text-xs">Time for Kids Reporter (2023–2024)</p>
+                                        <p class="text-gray-400 mt-0.5">Contributed articles focused on current events and topics I am passionate about in order to spread awareness and inform readers. Strengthened my writing, journalism, and communication skills.</p>
+                                    </li>
+                                    <li class="border-b border-gold-100 dark:border-zinc-800 pb-2 last:border-b-0 last:pb-0">
+                                        <p class="font-semibold text-gray-900 dark:text-white text-xs">Mock Trial (2023–2026)</p>
+                                        <p class="text-gray-400 mt-0.5">Participated in Browning’s Mock Trial program, developing skills in public speaking, reasoning, advocacy, and critical thinking under pressure.</p>
+                                    </li>
+                                    <li class="border-b border-gold-100 dark:border-zinc-800 pb-2 last:border-b-0 last:pb-0">
+                                        <p class="font-semibold text-gray-900 dark:text-white text-xs">Debate Team (2024–2026)</p>
+                                        <p class="text-gray-400 mt-0.5">Competed in debates focused on argumentation, public speaking, and analytical reasoning. Improved my ability to think critically and communicate effectively.</p>
+                                    </li>
+                                    <li class="border-b border-gold-100 dark:border-zinc-800 pb-2 last:border-b-0 last:pb-0">
+                                        <p class="font-semibold text-gray-900 dark:text-white text-xs">Urban Barcoding (2024–2025)</p>
+                                        <p class="text-gray-400 mt-0.5">Participated in scientific research focused on biodiversity and environmental science through urban barcoding projects.</p>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 
-              PROCESS: PAGE 4 (SKILLS SECTION WITH REAL INTERACTIVE CATEGORY FILTERING)
-              Users can select different categories (All, Tech & Creative, Academic, Leadership).
-              We use Tailwind width transition styles to animate the golden metrics rating bars!
-            -->
+            <!-- PAGE 4: SKILLS PAGE -->
             <section id="page-skills" class="page-container flex-1 py-20 bg-white dark:bg-apple-dark transition-colors hidden">
                 <div class="max-w-6xl mx-auto px-6">
                     <div class="text-center max-w-2xl mx-auto mb-12">
@@ -548,7 +494,7 @@ Perfect for instant hosting on GitHub Pages!
                     </div>
 
                     <!-- Interactive Skill Filters -->
-                    <div class="flex justify-center gap-3 mb-12 flex-wrap">
+                    <div class="flex justify-center gap-3 mb-12 flex-wrap no-print font-sans">
                         <button onclick="filterSkills('all')" class="filter-btn px-5 py-2 bg-gold-500 text-apple-dark text-xs font-bold uppercase tracking-widest rounded-full transition shadow-sm">All</button>
                         <button onclick="filterSkills('tech')" class="filter-btn px-5 py-2 bg-white dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full transition hover:border-gold-500">Tech &amp; Creative</button>
                         <button onclick="filterSkills('academic')" class="filter-btn px-5 py-2 bg-white dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full transition hover:border-gold-500">Academic &amp; Speaking</button>
@@ -557,7 +503,7 @@ Perfect for instant hosting on GitHub Pages!
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="skills-grid">
                         <!-- Tech / Creative Skills -->
-                        <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300" data-category="tech">
+                        <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300 animate-fade-in" data-category="tech">
                             <h3 class="font-semibold text-sm text-gold-600 dark:text-gold-400 flex items-center gap-2 border-b border-gold-200/20 dark:border-zinc-800 pb-2">
                                 <i class="fa-solid fa-laptop-code text-gold-500"></i> Tech &amp; Creative
                             </h3>
@@ -602,7 +548,7 @@ Perfect for instant hosting on GitHub Pages!
                         </div>
 
                         <!-- Academic Skills -->
-                        <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300" data-category="academic">
+                        <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300 animate-fade-in" data-category="academic">
                             <h3 class="font-semibold text-sm text-gold-600 dark:text-gold-400 flex items-center gap-2 border-b border-gold-200/20 dark:border-zinc-800 pb-2">
                                 <i class="fa-solid fa-brain text-gold-500"></i> Academic &amp; Speaking
                             </h3>
@@ -647,7 +593,7 @@ Perfect for instant hosting on GitHub Pages!
                         </div>
 
                         <!-- Personal Skills -->
-                        <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300" data-category="personal">
+                        <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300 animate-fade-in" data-category="personal">
                             <h3 class="font-semibold text-sm text-gold-600 dark:text-gold-400 flex items-center gap-2 border-b border-gold-200/20 dark:border-zinc-800 pb-2">
                                 <i class="fa-solid fa-people-arrows text-gold-500"></i> Leadership &amp; Community
                             </h3>
@@ -685,12 +631,7 @@ Perfect for instant hosting on GitHub Pages!
                 </div>
             </section>
 
-            <!-- 
-              PROCESS: PAGE 5 (PROJECTS & FLOWCHART PORTFOLIO SECTION)
-              This renders your CS portfolio projects. 
-              Includes an interactive Python-styled Guessing Game, a live Sorting visualizer, 
-              and a structural flowchart representing your software components.
-            -->
+            <!-- PAGE 5: PROJECTS PAGE -->
             <section id="page-projects" class="page-container flex-1 py-20 bg-gold-50 text-gray-900 dark:bg-apple-dark transition-colors hidden">
                 <div class="max-w-6xl mx-auto px-6">
                     <div class="text-center max-w-2xl mx-auto mb-16">
@@ -714,7 +655,7 @@ Perfect for instant hosting on GitHub Pages!
                             </div>
                             
                             <!-- Mini Game Inside Card -->
-                            <div class="p-4 bg-gold-100/10 dark:bg-zinc-950/40 border-t border-gold-200/20 dark:border-zinc-800">
+                            <div class="p-4 bg-gold-100/10 dark:bg-zinc-950/40 border-t border-gold-200/20 dark:border-zinc-800 no-print">
                                 <div class="bg-zinc-950 text-gold-400 p-3 rounded-xl font-mono text-[11px] h-36 flex flex-col justify-between">
                                     <div id="game-display" class="overflow-y-auto h-24 custom-scrollbar whitespace-pre-wrap">System: Guess the secret number from 1 to 20!</div>
                                     <div class="flex gap-2">
@@ -738,7 +679,7 @@ Perfect for instant hosting on GitHub Pages!
                                 </p>
                             </div>
 
-                            <div class="p-4 bg-gold-100/10 dark:bg-zinc-950/40 border-t border-gold-200/20 dark:border-zinc-800">
+                            <div class="p-4 bg-gold-100/10 dark:bg-zinc-950/40 border-t border-gold-200/20 dark:border-zinc-800 no-print">
                                 <div class="p-3 bg-white dark:bg-zinc-900 rounded-xl border border-gold-200/20 dark:border-zinc-800">
                                     <div class="flex justify-between items-end gap-2 h-16 pb-2" id="sorting-bars">
                                         <!-- Bars rendered on load -->
@@ -785,11 +726,7 @@ Perfect for instant hosting on GitHub Pages!
                 </div>
             </section>
 
-            <!-- 
-              PROCESS: PAGE 6 (CONTACT HUB HUB)
-              This section contains work emails, personal emails, your LinkedIn profile link,
-              and a fully styled messaging interface.
-            -->
+            <!-- PAGE 6: CONTACT PAGE -->
             <section id="page-contact" class="page-container flex-1 py-20 bg-white dark:bg-apple-dark transition-colors hidden">
                 <div class="max-w-4xl mx-auto px-6">
                     <div class="text-center max-w-2xl mx-auto mb-16">
@@ -799,7 +736,7 @@ Perfect for instant hosting on GitHub Pages!
                         <p class="text-sm text-gray-400 mt-2">Have a question or want to connect? Feel free to reach out.</p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 font-sans">
                         <!-- Work Email -->
                         <div class="bg-gold-50 dark:bg-apple-zinc p-6 rounded-2xl border border-gold-200/30 text-center space-y-2">
                             <i class="fa-solid fa-envelope text-gold-500 text-2xl"></i>
@@ -822,7 +759,7 @@ Perfect for instant hosting on GitHub Pages!
                         </div>
                     </div>
 
-                    <div class="bg-gold-50 dark:bg-apple-zinc rounded-2xl p-8 border border-gold-200/30 dark:border-zinc-850">
+                    <div class="bg-gold-50 dark:bg-apple-zinc rounded-2xl p-8 border border-gold-200/30 dark:border-zinc-850 no-print">
                         <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
@@ -851,7 +788,7 @@ Perfect for instant hosting on GitHub Pages!
                                 </div>
                             </div>
 
-                            <button type="submit" class="w-full py-3 bg-gold-500 hover:bg-gold-600 text-apple-dark font-semibold rounded-full transition shadow-md hover:shadow-gold-500/10 flex items-center justify-center gap-2">
+                            <button type="submit" class="w-full py-3 bg-gold-500 hover:bg-gold-600 text-apple-dark font-semibold rounded-full transition shadow-md hover:shadow-gold-500/10 flex items-center justify-center gap-2 font-sans">
                                 <i class="fa-solid fa-paper-plane text-xs"></i> Send Message
                             </button>
                         </form>
@@ -860,9 +797,9 @@ Perfect for instant hosting on GitHub Pages!
             </section>
 
             <!-- Elegant Simple Footer -->
-            <footer class="bg-white dark:bg-apple-dark border-t border-gold-200/20 dark:border-zinc-900 py-12 text-center text-xs text-gray-500 dark:text-gray-400 space-y-4 mt-auto">
-                <p>&copy; 2026 <span class="display-fullName">Ninis Twumasi</span>. Developed for CSE Portfolios.</p>
-                <div class="flex justify-center gap-4 text-xs font-medium">
+            <footer class="bg-white dark:bg-apple-dark border-t border-gold-200/20 dark:border-zinc-900 py-12 text-center text-xs text-gray-500 dark:text-gray-400 space-y-4 mt-auto no-print">
+                <p>&copy; 2026 <span>Ninis Twumasi</span>. Developed for CSE Portfolios.</p>
+                <div class="flex justify-center gap-4 text-xs font-medium font-sans">
                     <a href="#" onclick="navigateTo('page-about')" class="hover:text-gold-500 transition">About</a>
                     <a href="#" onclick="navigateTo('page-resume')" class="hover:text-gold-500 transition">CV Resume</a>
                     <a href="#" onclick="navigateTo('page-skills')" class="hover:text-gold-500 transition">Skills</a>
@@ -875,33 +812,82 @@ Perfect for instant hosting on GitHub Pages!
     <!-- 
       PROCESS: WEB WORKSPACE JAVASCRIPT LOGIC
       This script handles all dynamic changes on the webpage, such as theme changing, 
-      routing, page navigation, live customizer updates, and game and visualizer logic.
+      routing, page navigation, and game and visualizer logic.
     -->
     <script>
-        // Dynamic backgrounds used for shuffling the homepage visually
+        // Array of background styling configurations:
+        // Config 0: IMG_1327.jpg
+        // Config 1: IMG_1053 Small.jpeg
+        // Config 2: IMG_0594 Small.jpeg
+        // Config 3: Glowing gold "NT" monogram on a black background
         const backgrounds = [
-            "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920&auto=format&fit=crop", 
-            "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=1920&auto=format&fit=crop", 
-            "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1920&auto=format&fit=crop", 
-            "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1920&auto=format&fit=crop"
+            "url('IMG_1327.jpg')", 
+            "url('IMG_1053%20Small.jpeg')", 
+            "url('IMG_0594%20Small.jpeg')",
+            "none"
+        ];
+
+        // Backup high-quality Unsplash gold & white marble textures in case local files fail to load in sandboxed previews
+        const fallbacks = [
+            "url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920')",
+            "url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1920')",
+            "url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1920')"
         ];
 
         let currentBgIndex = 0;
 
-        // Shuffle background function: Picks a random white/gold abstract image and applies it smoothly
+        // Shuffle background function: cycles through your custom images and custom designed black-and-gold screen
         function shuffleBackground() {
-            currentBgIndex = Math.floor(Math.random() * backgrounds.length);
             const hero = document.getElementById("page-home");
-            if (hero) {
-                hero.style.backgroundImage = `url('${backgrounds[currentBgIndex]}')`;
-                hero.style.backgroundSize = "cover";
-                hero.style.backgroundPosition = "center";
+            const ntBg = document.getElementById("nt-monogram-bg");
+            const heroTextBlock = document.getElementById("hero-text-block");
+            const heroImageBlock = document.getElementById("hero-image-block");
+            
+            if (hero && ntBg) {
+                // If it is option index 3 (the custom NT Monogram black background)
+                if (currentBgIndex === 3) {
+                    hero.style.backgroundImage = "none";
+                    hero.style.backgroundColor = "#000000";
+                    ntBg.classList.remove("opacity-0");
+                    ntBg.classList.add("opacity-100");
+                    
+                    // Style hero text block for ultra high contrast on black background
+                    if (heroTextBlock) {
+                        heroTextBlock.className = "lg:col-span-7 space-y-6 bg-black/60 p-8 rounded-3xl backdrop-blur-md border border-white/10 shadow-2xl relative z-10 transition-all duration-500";
+                    }
+                } else {
+                    // Hide the golden monogram overlay
+                    ntBg.classList.add("opacity-0");
+                    ntBg.classList.remove("opacity-100");
+                    
+                    // Reset text block back to elegant simple styling
+                    if (heroTextBlock) {
+                        heroTextBlock.className = "lg:col-span-7 space-y-6 transition-all duration-500 relative z-10";
+                    }
+                    
+                    // Apply image backgrounds
+                    hero.style.backgroundImage = backgrounds[currentBgIndex];
+                    hero.style.backgroundSize = "cover";
+                    hero.style.backgroundPosition = "center";
+                    
+                    // Verify if local image successfully loaded, if not, use premium backup fallback
+                    const testImg = new Image();
+                    const path = backgrounds[currentBgIndex].replace("url('", "").replace("')", "");
+                    testImg.src = path;
+                    testImg.onerror = function() {
+                        if (currentBgIndex < 3) {
+                            hero.style.backgroundImage = fallbacks[currentBgIndex];
+                        }
+                    };
+                }
+
+                // Cycle background index
+                currentBgIndex = (currentBgIndex + 1) % backgrounds.length;
             }
         }
 
-        // Auto shuffle the home background every 10 seconds for dynamic presentation
-        setInterval(shuffleBackground, 10000);
+        // Auto shuffle home background every 15 seconds
+        setInterval(shuffleBackground, 15000);
 
         // Apple full screen overlay menu display controls
         function openMenuOverlay() {
@@ -918,7 +904,7 @@ Perfect for instant hosting on GitHub Pages!
             document.body.style.overflow = '';
         }
 
-        // Navigation Router: Hides all sections and activates the chosen one
+        // Standard JS Navigation Router for multi-page simulation
         function navigateTo(pageId) {
             const pages = ['page-home', 'page-about', 'page-resume', 'page-skills', 'page-projects', 'page-contact'];
             
@@ -948,7 +934,7 @@ Perfect for instant hosting on GitHub Pages!
             window.scrollTo(0, 0);
         }
 
-        // Skills category filtering: Hides and shows cards based on metadata category attributes
+        // Skills category filtering system
         function filterSkills(category) {
             const cards = document.querySelectorAll('.skill-card');
             const buttons = document.querySelectorAll('.filter-btn');
@@ -972,55 +958,7 @@ Perfect for instant hosting on GitHub Pages!
             });
         }
 
-        // Live Customizer: Real-time syncing from input fields to target display classes
-        function syncCustomizerFields() {
-            const fields = ["firstName", "lastName", "academicTitle", "school", "gradeLevel", "email", "hobbies", "careerGoal"];
-            
-            const first = document.getElementById("input-firstName").value;
-            const last = document.getElementById("input-lastName").value;
-            const full = `${first} ${last}`;
-
-            const logo = document.getElementById("nav-logo-name");
-            if (logo) logo.innerText = first;
-
-            fields.forEach(field => {
-                const val = document.getElementById(`input-${field}`).value;
-                document.querySelectorAll(`.display-${field}`).forEach(el => {
-                    el.innerText = val;
-                });
-            });
-
-            document.querySelectorAll(".display-fullName").forEach(el => {
-                el.innerText = full;
-            });
-        }
-
-        // Base configurations for Customizer Reset
-        const defaults = {
-            firstName: "Ninis",
-            lastName: "Twumasi",
-            academicTitle: "Sophomore & CS Student at The Browning School",
-            school: "The Browning School",
-            gradeLevel: "Sophomore (Class of 2028)",
-            email: "ntwumasi@browning.edu",
-            hobbies: "Soccer, Creative Writing, Track, Public Speaking, Community Activism",
-            careerGoal: "To leverage storytelling, community engagement, and logic to drive social advocacy."
-        };
-
-        function resetToDefaults() {
-            Object.keys(defaults).forEach(key => {
-                const inp = document.getElementById(`input-${key}`);
-                if (inp) inp.value = defaults[key];
-            });
-            syncCustomizerFields();
-        }
-
-        function toggleCustomizer() {
-            const panel = document.getElementById('customizer');
-            panel.classList.toggle('hidden');
-        }
-
-        // Theme control setting: Checks system preference or local choice
+        // Dark/Light Mode toggle handler
         function initTheme() {
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
@@ -1037,18 +975,6 @@ Perfect for instant hosting on GitHub Pages!
                 document.documentElement.classList.add('dark');
                 localStorage.theme = 'dark';
             }
-        }
-
-        // Interactive Code Compilation logic
-        function executePyDemo() {
-            const out = document.getElementById("py-output");
-            out.innerHTML = `
-                <span class="text-zinc-500">// Simulating Python Output:</span><br>
-                <strong>&gt;&gt;&gt; print(Portfolio().owner)</strong><br>
-                <span class="text-gold-500">"${document.getElementById("input-firstName").value} ${document.getElementById("input-lastName").value}"</span><br><br>
-                <strong>&gt;&gt;&gt; print(Portfolio().academic)</strong><br>
-                <span class="text-gold-500">"Sophomore at The Browning School (Class of 2028)"</span>
-            `;
         }
 
         // --- BINARY SEARCH GUESSING GAME LOGIC ---
@@ -1095,7 +1021,7 @@ Perfect for instant hosting on GitHub Pages!
             sortStatus.textContent = "Processing logic...";
             sortStatus.className = "text-[10px] text-gold-500 font-mono animate-pulse";
             
-            // Traditional sorting pass comparison
+            // Traditional bubble sorting pass comparison
             for (let i = 0; i < sortingData.length - 1; i++) {
                 if (sortingData[i] > sortingData[i+1]) {
                     let temp = sortingData[i];
@@ -1124,8 +1050,8 @@ Perfect for instant hosting on GitHub Pages!
         window.onload = function() {
             initTheme();
             renderSortingBars();
+            navigateTo('page-home'); // Ensures Home section displays immediately
             shuffleBackground();
-            syncCustomizerFields();
         };
     </script>
 </body>
