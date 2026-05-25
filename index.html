@@ -63,8 +63,8 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
     <!-- 
       PROCESS: LAYOUT TRANSITIONS & CUSTOM PRINT STYLING
       * Smooth transitions make background image shuffling feel highly polished.
-      * Media Print Stylesheet optimizes your layout when printing or saving as a PDF 
-        by hiding navigation links, button controls, and footer blocks.
+      * Media Print Stylesheet isolates the resume section when printing or saving as a PDF,
+        ensuring everything else is hidden for a clean, academic layout.
     -->
     <style>
         html {
@@ -97,22 +97,36 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             box-shadow: 0 0 30px rgba(212, 175, 55, 0.35);
         }
 
-        /* Standardized Print/PDF output configurations */
+        /* PROCESS: STANDARDIZED PRINT/PDF CONFIGURATIONS
+          This is a custom-coded print override. When printing, it completely hides 
+          the navigation, buttons, background shuffles, and details, ensuring that 
+          ONLY the resume's structural details print out clean and centered.
+        -->
         @media print {
             body {
                 background: white !important;
                 color: black !important;
             }
-            header, footer, .filter-btn, .no-print, #menu-overlay-button {
-                display: none !important;
+            body * {
+                visibility: hidden !important;
             }
-            .page-container {
-                display: block !important;
-                opacity: 1 !important;
+            #page-resume, #page-resume * {
+                visibility: visible !important;
             }
-            .print-full-width {
+            #page-resume {
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
                 width: 100% !important;
-                max-width: 100% !important;
+                display: block !important;
+                background: white !important;
+                color: black !important;
+            }
+            .no-print, header, footer, button, #menu-overlay-button {
+                display: none !important;
+                height: 0 !important;
+                padding: 0 !important;
+                margin: 0 !important;
             }
         }
     </style>
@@ -131,7 +145,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             <header class="bg-white/90 dark:bg-apple-dark/90 backdrop-blur-md border-b border-gold-200/20 dark:border-zinc-900 sticky top-0 z-30 transition-colors no-print">
                 <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
                     <a href="#" onclick="navigateTo('page-home')" class="flex items-center gap-2 font-bold text-lg tracking-tight hover:opacity-85 transition text-gold-600 dark:text-gold-400">
-                        <span class="font-light text-gray-400">&lt;</span><span>Ninis</span><span class="font-light text-gray-400">.js /&gt;</span>
+                        <span class="font-light text-gray-400">&lt;</span><span>Ninis</span><span class="font-light text-gray-400 font-normal">.js /&gt;</span>
                     </a>
                     
                     <!-- Desktop Header Navigation links -->
@@ -141,7 +155,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                             <a href="#" onclick="navigateTo('page-about')" class="nav-link hover:text-gold-500 transition duration-300">About</a>
                             <a href="#" onclick="navigateTo('page-resume')" class="nav-link hover:text-gold-500 transition duration-300">Resume</a>
                             <a href="#" onclick="navigateTo('page-skills')" class="nav-link hover:text-gold-500 transition duration-300">Skills</a>
-                            <a href="#" onclick="navigateTo('page-projects')" class="nav-link hover:text-gold-500 transition duration-300">Projects</a>
                             <a href="#" onclick="navigateTo('page-contact')" class="nav-link hover:text-gold-500 transition duration-300">Contact</a>
                         </nav>
 
@@ -153,7 +166,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <i class="fa-solid fa-sun hidden dark:inline"></i>
                             </button>
                             <!-- Apple Full Screen minimalist menu button -->
-                            <button id="menu-overlay-button" onclick="openMenuOverlay()" class="text-gray-700 dark:text-gray-200 hover:text-gold-500 p-2 rounded-full hover:bg-gold-100/30 transition flex items-center gap-1.5">
+                            <button id="menu-overlay-button" onclick="openMenuOverlay()" class="text-gray-700 dark:text-gray-200 hover:text-gold-500 p-2 rounded-full hover:bg-gold-100/30 transition flex items-center gap-1.5 font-sans">
                                 <span class="text-[10px] font-bold tracking-widest uppercase hidden sm:inline">Menu</span>
                                 <i class="fa-solid fa-bars-staggered text-lg"></i>
                             </button>
@@ -182,8 +195,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     <a href="#" onclick="navigateTo('page-about')" class="text-4xl sm:text-6xl font-serif font-light text-gray-800 dark:text-gray-100 hover:text-gold-500 transition tracking-tight">02 / About Me</a>
                     <a href="#" onclick="navigateTo('page-resume')" class="text-4xl sm:text-6xl font-serif font-light text-gray-800 dark:text-gray-100 hover:text-gold-500 transition tracking-tight">03 / Academic Resume</a>
                     <a href="#" onclick="navigateTo('page-skills')" class="text-4xl sm:text-6xl font-serif font-light text-gray-800 dark:text-gray-100 hover:text-gold-500 transition tracking-tight">04 / Core Skills</a>
-                    <a href="#" onclick="navigateTo('page-projects')" class="text-4xl sm:text-6xl font-serif font-light text-gray-800 dark:text-gray-100 hover:text-gold-500 transition tracking-tight">05 / Projects &amp; Games</a>
-                    <a href="#" onclick="navigateTo('page-contact')" class="text-4xl sm:text-6xl font-serif font-light text-gray-800 dark:text-gray-100 hover:text-gold-500 transition tracking-tight">06 / Contact Hub</a>
+                    <a href="#" onclick="navigateTo('page-contact')" class="text-4xl sm:text-6xl font-serif font-light text-gray-800 dark:text-gray-100 hover:text-gold-500 transition tracking-tight">05 / Contact Hub</a>
                 </nav>
 
                 <div class="text-center text-xs text-gray-400 max-w-xl mx-auto space-y-2 font-sans">
@@ -195,12 +207,25 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             <!-- PAGE 1: HOME PAGE (Active by default) -->
             <section id="page-home" class="page-container flex-1 bg-transition relative flex items-center py-16 md:py-28 min-h-[85vh] bg-gold-50 dark:bg-apple-dark">
                 
-                <!-- Glowing Golden "NT" Monogram Overlay (Option 4 is black background with gold "NT") -->
+                <!-- 
+                  PROCESS: HIGH-RESOLUTION VECTOR MONOGRAM OVERLAY
+                  Instead of rendering text inside a blurred container, this layer utilizes
+                  crisp, mathematical SVG vectors to display the glowing gold "NT" monogram 
+                  perfectly on a deep black background when Option 4 is active.
+                -->
                 <div id="nt-monogram-bg" class="absolute inset-0 bg-black flex flex-col items-center justify-center pointer-events-none opacity-0 transition-opacity duration-1000 no-print z-0">
-                    <div class="w-48 h-48 rounded-full border border-gold-500/20 flex items-center justify-center shadow-[0_0_50px_rgba(212,175,55,0.1)]">
-                        <span class="font-serif font-light text-7xl tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-500 to-gold-600 drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">NT</span>
-                    </div>
-                    <span class="text-[10px] text-gold-500/60 font-mono tracking-[0.25em] uppercase mt-4">Ninis Twumasi Portfolio</span>
+                    <svg class="w-64 h-64 drop-shadow-[0_0_20px_rgba(212,175,55,0.4)]" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="80" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="4 4" class="animate-spin-slow" />
+                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="64" font-weight="300" fill="url(#goldGradient)">NT</text>
+                        <defs>
+                            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#EADAA9" />
+                                <stop offset="50%" stop-color="#D4AF37" />
+                                <stop offset="100%" stop-color="#A3801A" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="text-[10px] text-gold-500/70 font-mono tracking-[0.3em] uppercase mt-4">Ninis Twumasi Portfolio</span>
                 </div>
 
                 <!-- Inner Content Container -->
@@ -228,19 +253,19 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 Explore About Me <i class="fa-solid fa-arrow-right"></i>
                             </button>
                             <button onclick="shuffleBackground()" class="px-6 py-3.5 bg-white/90 dark:bg-zinc-900/90 backdrop-blur text-gold-600 dark:text-gold-400 border border-gold-200 dark:border-zinc-800 hover:border-gold-500 text-xs font-bold uppercase tracking-wider rounded-full transition flex items-center gap-2 shadow-sm font-sans">
-                                <i class="fa-solid fa-wand-magic-sparkles animate-spin-slow"></i> Shuffle Background
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> Shuffle Background
                             </button>
                         </div>
                     </div>
 
-                    <!-- Right Portrait Picture Frame -->
+                    <!-- Right Portrait Picture Frame with strict aspect constraints to avoid blur -->
                     <div class="lg:col-span-5 w-full flex justify-center z-10" id="hero-image-block">
                         <div class="relative group max-w-sm w-full">
                             <div class="absolute -inset-1.5 bg-gradient-to-tr from-gold-400 via-gold-200 to-white rounded-3xl blur opacity-30 group-hover:opacity-45 transition duration-1000"></div>
                             <div class="relative bg-white dark:bg-zinc-950 p-3 rounded-3xl border border-gold-200/30 dark:border-zinc-800/80 shadow-2xl">
                                 <div class="aspect-square w-full rounded-2xl overflow-hidden bg-gold-100/50 dark:bg-zinc-900 relative">
-                                    <!-- Displays Ninis' uploaded image -->
-                                    <img src="IMG_0594 Small.jpeg" alt="Ninis Twumasi Portrait" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                    <!-- Displays Ninis' uploaded image with strict cover scale -->
+                                    <img src="IMG_0594 Small.jpeg" alt="Ninis Twumasi Portrait" class="w-full h-full object-cover object-center" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
                                     <!-- Fallback design icon if local file isn't loaded -->
                                     <div class="hidden absolute inset-0 flex items-center justify-center bg-zinc-900">
                                         <i class="fa-solid fa-user-tie text-gold-500 text-6xl"></i>
@@ -272,7 +297,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <div class="absolute -inset-1 bg-gradient-to-r from-gold-300 to-gold-600 rounded-2xl blur opacity-35 transition duration-1000"></div>
                                 <div class="relative bg-white dark:bg-zinc-900 p-2 rounded-2xl border border-gold-200/50 dark:border-zinc-800">
                                     <div class="aspect-square w-full bg-gold-100/50 dark:bg-zinc-850 rounded-xl overflow-hidden relative">
-                                        <img src="IMG_1053 Small.jpeg" alt="Ninis Twumasi Portrait" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                        <img src="IMG_1053 Small.jpeg" alt="Ninis Twumasi Portrait" class="w-full h-full object-cover object-center" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
                                         <div class="hidden absolute inset-0 flex items-center justify-center bg-zinc-905">
                                             <i class="fa-solid fa-graduation-cap text-gold-500 text-5xl"></i>
                                         </div>
@@ -330,28 +355,82 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         
                         <!-- Print styling trigger button for keeping a PDF form -->
                         <div class="mt-6 flex justify-center no-print">
-                            <button onclick="window.print()" class="px-6 py-2.5 bg-gold-500 hover:bg-gold-600 text-apple-dark font-semibold text-xs rounded-full uppercase tracking-wider shadow-md transition duration-300 flex items-center gap-2 font-sans">
+                            <button onclick="triggerPDFPrint()" class="px-6 py-2.5 bg-gold-500 hover:bg-gold-600 text-apple-dark font-semibold text-xs rounded-full uppercase tracking-wider shadow-md transition duration-300 flex items-center gap-2 font-sans">
                                 <i class="fa-solid fa-file-pdf"></i> Keep / Save PDF Resume
                             </button>
                         </div>
                     </div>
 
-                    <!-- Highlighted Group Spotlight: Black Student Coalition NYC Representative -->
-                    <div class="mb-12 bg-white dark:bg-apple-zinc border border-gold-200/40 dark:border-zinc-800 rounded-3xl p-6 lg:p-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                        <div class="md:col-span-5 rounded-2xl overflow-hidden relative shadow-md aspect-[4/3] bg-zinc-900">
-                            <!-- Group image source configured with user uploaded file -->
-                            <img src="IMG_1936.jpg" alt="Black Student Coalition NYC group" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
-                            <div class="hidden absolute inset-0 flex items-center justify-center bg-zinc-900 text-gold-500">
-                                <i class="fa-solid fa-users text-5xl"></i>
+                    <!-- Highlighted Group Spotlights: Three Columns of Spotlights (Coalition, Soccer Captain, Track & Field) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                        
+                        <!-- Spotlight 1: Black Student Coalition NYC Representative -->
+                        <div class="bg-white dark:bg-apple-zinc border border-gold-200/40 dark:border-zinc-800 rounded-3xl p-6 flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="rounded-2xl overflow-hidden relative shadow-md aspect-[4/3] bg-zinc-900">
+                                    <img src="IMG_1936.jpg" alt="Black Student Coalition NYC group" class="w-full h-full object-cover object-center" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                    <div class="hidden absolute inset-0 flex items-center justify-center bg-zinc-900 text-gold-500">
+                                        <i class="fa-solid fa-users text-5xl"></i>
+                                    </div>
+                                </div>
+                                <div class="space-y-2 font-sans">
+                                    <span class="inline-block bg-gold-100 dark:bg-gold-950/40 text-gold-700 dark:text-gold-400 text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-gold-200/20">Coalition Spotlight</span>
+                                    <h3 class="text-lg font-serif font-semibold text-gray-900 dark:text-white">Black Student Coalition Rep</h3>
+                                    <p class="text-xs text-gray-500 dark:text-zinc-400 leading-relaxed font-light">
+                                        Serve as Browning’s representative to the Black Student Coalition NYC, an organization connecting Black students across New York City. Promote Black culture, encourage meaningful discussions, and help build a supportive and empowering community among students.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="md:col-span-7 space-y-4 font-sans">
-                            <span class="inline-block bg-gold-100 dark:bg-gold-950/40 text-gold-700 dark:text-gold-400 text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-gold-200/20">Featured Coalition Spotlight</span>
-                            <h3 class="text-xl font-serif font-semibold text-gray-900 dark:text-white">Black Student Coalition NYC Representative</h3>
-                            <p class="text-xs text-gray-500 dark:text-zinc-400 leading-relaxed font-light">
-                                Serve as Browning’s representative to the Black Student Coalition NYC, an organization connecting Black students across New York City. Promote Black culture, encourage meaningful discussions, and help build a supportive and empowering community among students.
-                            </p>
+
+                        <!-- Spotlight 2: Soccer JV Captain Spotlight showing the real Soccer .webp photo -->
+                        <div class="bg-white dark:bg-apple-zinc border border-gold-200/40 dark:border-zinc-800 rounded-3xl p-6 flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="rounded-2xl overflow-hidden relative shadow-md aspect-[4/3] bg-zinc-900">
+                                    <!-- Displays Soccer .webp visual -->
+                                    <img src="Soccer .webp" alt="JV Soccer Action Shot" class="w-full h-full object-cover object-center" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                    <div class="hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-gold-900 via-apple-dark to-black text-center p-6 text-white">
+                                        <i class="fa-solid fa-soccer-ball text-gold-500 text-4xl mb-3 animate-pulse"></i>
+                                        <h4 class="font-serif text-lg font-bold text-gold-300">JV Soccer Captain</h4>
+                                    </div>
+                                </div>
+                                <div class="space-y-2 font-sans">
+                                    <span class="inline-block bg-gold-100 dark:bg-gold-950/40 text-gold-700 dark:text-gold-400 text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-gold-200/20">Athletics Spotlight</span>
+                                    <h3 class="text-lg font-serif font-semibold text-gray-900 dark:text-white">JV Soccer Captain</h3>
+                                    <p class="text-xs text-gray-500 dark:text-zinc-400 leading-relaxed font-light">
+                                        Played competitive soccer for over six years, developing strong teamwork, communication, and leadership skills. Served as JV Captain, helping lead practices, motivate teammates, and promote collaboration on and off the field.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-gold-100 dark:border-zinc-800 flex justify-between items-center no-print">
+                                <span class="text-[10px] text-gray-400 font-mono">Soccer .pdf</span>
+                                <a href="Soccer .pdf" target="_blank" class="px-4 py-1.5 bg-gold-500 hover:bg-gold-600 text-apple-dark font-sans font-bold text-[10px] rounded-full uppercase tracking-wider transition">
+                                    <i class="fa-solid fa-file-pdf mr-1"></i> Open PDF Document
+                                </a>
+                            </div>
                         </div>
+
+                        <!-- Spotlight 3: Varsity Indoor/Outdoor Track Spotlight showing your running picture, renamed to image.png -->
+                        <div class="bg-white dark:bg-apple-zinc border border-gold-200/40 dark:border-zinc-800 rounded-3xl p-6 flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="rounded-2xl overflow-hidden relative shadow-md aspect-[4/3] bg-zinc-900">
+                                    <!-- Displays Running Action Shot image.png inside the Codespace repository -->
+                                    <img src="image.png" alt="Varsity Track Action Shot" class="w-full h-full object-cover object-center" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                    <div class="hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-gold-900 via-apple-dark to-black text-center p-6 text-white">
+                                        <i class="fa-solid fa-person-running text-gold-500 text-4xl mb-3 animate-pulse"></i>
+                                        <h4 class="font-serif text-lg font-bold text-gold-300">Varsity Track</h4>
+                                    </div>
+                                </div>
+                                <div class="space-y-2 font-sans">
+                                    <span class="inline-block bg-gold-100 dark:bg-gold-950/40 text-gold-700 dark:text-gold-400 text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-gold-200/20">Track &amp; Field Spotlight</span>
+                                    <h3 class="text-lg font-serif font-semibold text-gray-900 dark:text-white">Varsity Indoor/Outdoor Track</h3>
+                                    <p class="text-xs text-gray-500 dark:text-zinc-400 leading-relaxed font-light">
+                                        Competed in Varsity Track while focusing on discipline, perseverance, and personal growth. Worked toward improving performance, achieving personal records, and maintaining physical fitness through consistent training and competition.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -363,8 +442,8 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 </h3>
 
                                 <div class="relative border-l-2 border-gold-200 dark:border-zinc-800 ml-2 pl-6 space-y-8 font-sans">
-                                    <!-- JV Soccer Captain -->
-                                    <div class="relative animate-fade-in">
+                                    <!-- JV Soccer Captain Timeline node -->
+                                    <div class="relative">
                                         <span class="absolute -left-[31px] top-1.5 bg-gold-500 w-4 h-4 rounded-full border-4 border-white dark:border-apple-zinc"></span>
                                         <span class="text-[10px] font-mono font-bold text-gold-600 dark:text-gold-400 uppercase tracking-widest">2025</span>
                                         <h4 class="font-semibold text-sm text-gray-900 dark:text-white mt-1">Soccer JV Captain</h4>
@@ -487,58 +566,65 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             <!-- PAGE 4: SKILLS PAGE -->
             <section id="page-skills" class="page-container flex-1 py-20 bg-white dark:bg-apple-dark transition-colors hidden">
                 <div class="max-w-6xl mx-auto px-6">
-                    <div class="text-center max-w-2xl mx-auto mb-12">
+                    <div class="text-center max-w-2xl mx-auto mb-6">
                         <span class="text-[10px] font-bold text-gold-500 uppercase tracking-widest">Skill Metrics</span>
                         <h2 class="text-4xl font-serif font-light tracking-tight text-gray-900 dark:text-white mt-2">Competencies &amp; Abilities</h2>
                         <div class="w-12 h-[2px] bg-gold-400 mx-auto rounded mt-3"></div>
+                        <p class="text-sm text-zinc-400 mt-2 font-light animate-pulse">Click on any skill card below to view specific experience details and summaries!</p>
                     </div>
 
                     <!-- Interactive Skill Filters -->
-                    <div class="flex justify-center gap-3 mb-12 flex-wrap no-print font-sans">
+                    <div class="flex justify-center gap-3 mb-10 flex-wrap no-print font-sans">
                         <button onclick="filterSkills('all')" class="filter-btn px-5 py-2 bg-gold-500 text-apple-dark text-xs font-bold uppercase tracking-widest rounded-full transition shadow-sm">All</button>
                         <button onclick="filterSkills('tech')" class="filter-btn px-5 py-2 bg-white dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full transition hover:border-gold-500">Tech &amp; Creative</button>
                         <button onclick="filterSkills('academic')" class="filter-btn px-5 py-2 bg-white dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full transition hover:border-gold-500">Academic &amp; Speaking</button>
                         <button onclick="filterSkills('personal')" class="filter-btn px-5 py-2 bg-white dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full transition hover:border-gold-500">Leadership</button>
                     </div>
 
+                    <!-- Dynamic Skill Description Portal Frame -->
+                    <div id="skill-desc-portal" class="max-w-3xl mx-auto mb-12 bg-gold-100/60 dark:bg-zinc-900/60 border border-gold-200 dark:border-zinc-800 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 transform scale-100 hidden">
+                        <h4 class="font-serif font-bold text-gold-600 dark:text-gold-400 text-lg" id="skill-portal-title">Skill Overview</h4>
+                        <p class="text-sm text-gray-600 dark:text-zinc-300 mt-2 leading-relaxed font-light max-w-xl mx-auto" id="skill-portal-body">Click a card to load information.</p>
+                    </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="skills-grid">
                         <!-- Tech / Creative Skills -->
-                        <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300 animate-fade-in" data-category="tech">
+                        <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300 animate-fade-in hover:border-gold-500/50 cursor-pointer" data-category="tech">
                             <h3 class="font-semibold text-sm text-gold-600 dark:text-gold-400 flex items-center gap-2 border-b border-gold-200/20 dark:border-zinc-800 pb-2">
                                 <i class="fa-solid fa-laptop-code text-gold-500"></i> Tech &amp; Creative
                             </h3>
                             <div class="space-y-4">
-                                <div>
+                                <div onclick="showSkillDescription('Python Coding', 'Python: I know basic code and computer logic.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-mono">Python Coding</span>
-                                        <span class="font-bold">Basic</span>
+                                        <span class="font-bold text-[10px] text-gold-500">Click to view</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 75%;"></div>
                                     </div>
                                 </div>
-                                <div>
+                                <div onclick="showSkillDescription('HTML Structure', 'HTML: I was able to code this website and like python i do have knowledge on code.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
-                                        <span class="font-mono">HTML &amp; CSS Structure</span>
-                                        <span class="font-bold">Good</span>
+                                        <span class="font-mono">HTML Structure</span>
+                                        <span class="font-bold text-[10px] text-gold-500">Click to view</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 85%;"></div>
                                     </div>
                                 </div>
-                                <div>
+                                <div onclick="showSkillDescription('Onshape CAD Program', 'CAD: I am able to cad real world objects and i have a great ablity to plan out complex item using cad.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-mono">Onshape CAD Program</span>
-                                        <span class="font-bold">Proficient</span>
+                                        <span class="font-bold text-[10px] text-gold-500">Click to view</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 80%;"></div>
                                     </div>
                                 </div>
-                                <div>
+                                <div onclick="showSkillDescription('Creative Journalism', 'Journalism: Over the past few years I havee been writing a lot to spread information.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-mono">Creative Journalism</span>
-                                        <span class="font-bold">Excellent</span>
+                                        <span class="font-bold text-[10px] text-gold-500">Click to view</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 90%;"></div>
@@ -548,42 +634,42 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         </div>
 
                         <!-- Academic Skills -->
-                        <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300 animate-fade-in" data-category="academic">
+                        <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300 animate-fade-in hover:border-gold-500/50 cursor-pointer" data-category="academic">
                             <h3 class="font-semibold text-sm text-gold-600 dark:text-gold-400 flex items-center gap-2 border-b border-gold-200/20 dark:border-zinc-800 pb-2">
                                 <i class="fa-solid fa-brain text-gold-500"></i> Academic &amp; Speaking
                             </h3>
                             <div class="space-y-4">
-                                <div>
+                                <div onclick="showSkillDescription('French Language', 'French: I have developed my language skills up to French 3, allowing me to understand and communicate at an intermediate level.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span>French (Language)</span>
-                                        <span class="font-bold">Intermediate</span>
+                                        <span class="font-bold text-[10px] text-gold-500">French 3</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 65%;"></div>
                                     </div>
                                 </div>
-                                <div>
+                                <div onclick="showSkillDescription('Public Speaking & Debate', 'Debate & Public Speaking: I have spend years building public speaking skills, reasoning under pressure, and confidently presenting arguments.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
-                                        <span>Public Speaking &amp; Debate</span>
-                                        <span class="font-bold">Advocate</span>
+                                        <span>Public Speaking</span>
+                                        <span class="font-bold text-[10px] text-gold-500">Click to view</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 95%;"></div>
                                     </div>
                                 </div>
-                                <div>
+                                <div onclick="showSkillDescription('Research & Fact-Checking', 'Research & Fact-Checking: I have refined my capability to build rigorous arguments, fact-check details, and parse complex information.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span>Research &amp; Fact-Checking</span>
-                                        <span class="font-bold">Detailed</span>
+                                        <span class="font-bold text-[10px] text-gold-500">Click to view</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 90%;"></div>
                                     </div>
                                 </div>
-                                <div>
+                                <div onclick="showSkillDescription('Scientific Writing', 'Scientific Writing: My work has been highlighted in real scientific projects, including my published research in Urban Barcoding.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span>Scientific Writing</span>
-                                        <span class="font-bold">Strong</span>
+                                        <span class="font-bold text-[10px] text-gold-500">Urban Barcoding</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 80%;"></div>
@@ -593,33 +679,33 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         </div>
 
                         <!-- Personal Skills -->
-                        <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300 animate-fade-in" data-category="personal">
+                        <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300 animate-fade-in hover:border-gold-500/50 cursor-pointer" data-category="personal">
                             <h3 class="font-semibold text-sm text-gold-600 dark:text-gold-400 flex items-center gap-2 border-b border-gold-200/20 dark:border-zinc-800 pb-2">
                                 <i class="fa-solid fa-people-arrows text-gold-500"></i> Leadership &amp; Community
                             </h3>
                             <div class="space-y-4">
-                                <div>
+                                <div onclick="showSkillDescription('Community Organizing', 'Community Organizing: I am highly skilled in coordinating events, planning fundraisers, and organizing volunteers to achieve substantial project milestones.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span>Community Organizing</span>
-                                        <span class="font-bold">Exceptional</span>
+                                        <span class="font-bold text-[10px] text-gold-500">Active</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 95%;"></div>
                                     </div>
                                 </div>
-                                <div>
+                                <div onclick="showSkillDescription('Team Leadership', 'Team Leadership: I am skilled in motivating groups, delegating workloads efficiently, and building collaborative frameworks across student bodies.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
-                                        <span>Team Leadership &amp; Mentorship</span>
-                                        <span class="font-bold">Active</span>
+                                        <span>Team Leadership</span>
+                                        <span class="font-bold text-[10px] text-gold-500">Active</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 90%;"></div>
                                     </div>
                                 </div>
-                                <div>
+                                <div onclick="showSkillDescription('Advocacy', 'Advocacy: I represent Browning at the Black Student Coalition and advocate for grades on Council. I find great purpose in helping people resolve conflicts and advocate for resources.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span>Advocacy &amp; Mediation</span>
-                                        <span class="font-bold">Driven</span>
+                                        <span class="font-bold text-[10px] text-gold-500">Driven</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 88%;"></div>
@@ -631,102 +717,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                 </div>
             </section>
 
-            <!-- PAGE 5: PROJECTS PAGE -->
-            <section id="page-projects" class="page-container flex-1 py-20 bg-gold-50 text-gray-900 dark:bg-apple-dark transition-colors hidden">
-                <div class="max-w-6xl mx-auto px-6">
-                    <div class="text-center max-w-2xl mx-auto mb-16">
-                        <span class="text-[10px] font-bold text-gold-500 uppercase tracking-widest">Functional Demos</span>
-                        <h2 class="text-4xl font-serif font-light tracking-tight text-gray-900 dark:text-white mt-2">Projects &amp; Logic Maps</h2>
-                        <div class="w-12 h-[2px] bg-gold-400 mx-auto rounded mt-3"></div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Project 1: Guessing Game -->
-                        <div class="bg-white dark:bg-apple-zinc rounded-2xl overflow-hidden shadow-sm border border-gold-200/30 dark:border-zinc-850 flex flex-col justify-between">
-                            <div class="p-6 space-y-4">
-                                <div class="flex justify-between items-start">
-                                    <span class="bg-gold-100 dark:bg-gold-950/40 text-gold-700 dark:text-gold-400 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full border border-gold-200/20">JS Engine</span>
-                                    <span class="text-gray-400 text-xs"><i class="fa-solid fa-calendar-days mr-1"></i> CSE Final</span>
-                                </div>
-                                <h3 class="font-semibold text-base">Interactive Guessing Game</h3>
-                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light">
-                                    A high-performance digital guess-the-number game built with input validation controls. Perfect representation of binary search algorithmic principles.
-                                </p>
-                            </div>
-                            
-                            <!-- Mini Game Inside Card -->
-                            <div class="p-4 bg-gold-100/10 dark:bg-zinc-950/40 border-t border-gold-200/20 dark:border-zinc-800 no-print">
-                                <div class="bg-zinc-950 text-gold-400 p-3 rounded-xl font-mono text-[11px] h-36 flex flex-col justify-between">
-                                    <div id="game-display" class="overflow-y-auto h-24 custom-scrollbar whitespace-pre-wrap">System: Guess the secret number from 1 to 20!</div>
-                                    <div class="flex gap-2">
-                                        <input type="number" id="game-guess-input" min="1" max="20" placeholder="Guess" class="w-full bg-zinc-900 text-white rounded px-2.5 py-1 text-xs border border-zinc-800 outline-none">
-                                        <button onclick="playMiniGame()" class="bg-gold-500 hover:bg-gold-600 text-apple-dark text-xs px-3.5 py-1.5 rounded-lg font-sans font-semibold transition">Submit</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 2: Sorting array step-by-step -->
-                        <div class="bg-white dark:bg-apple-zinc rounded-2xl overflow-hidden shadow-sm border border-gold-200/30 dark:border-zinc-850 flex flex-col justify-between">
-                            <div class="p-6 space-y-4">
-                                <div class="flex justify-between items-start">
-                                    <span class="bg-gold-100 dark:bg-gold-950/40 text-gold-700 dark:text-gold-400 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full border border-gold-200/20">Visualization</span>
-                                    <span class="text-gray-400 text-xs"><i class="fa-solid fa-bolt mr-1"></i> Step Engine</span>
-                                </div>
-                                <h3 class="font-semibold text-base">Sorting Flow Visualizer</h3>
-                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light">
-                                    Watch real-time sorting logic step through arrays dynamically inside modern containers. Fully visualizes the inner execution of simple sorting algorithms.
-                                </p>
-                            </div>
-
-                            <div class="p-4 bg-gold-100/10 dark:bg-zinc-950/40 border-t border-gold-200/20 dark:border-zinc-800 no-print">
-                                <div class="p-3 bg-white dark:bg-zinc-900 rounded-xl border border-gold-200/20 dark:border-zinc-800">
-                                    <div class="flex justify-between items-end gap-2 h-16 pb-2" id="sorting-bars">
-                                        <!-- Bars rendered on load -->
-                                    </div>
-                                    <div class="flex justify-between items-center mt-3">
-                                        <span class="text-[10px] text-gray-400 font-mono" id="sorting-status">Idle</span>
-                                        <button onclick="startBubbleSortSim()" class="text-xs text-gold-600 dark:text-gold-400 font-semibold flex items-center gap-1 hover:opacity-80 transition">
-                                            <i class="fa-solid fa-play text-[10px]"></i> Step Algorithm
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 3: Flow diagram system architectural setup -->
-                        <div class="bg-white dark:bg-apple-zinc rounded-2xl overflow-hidden shadow-sm border border-gold-200/30 dark:border-zinc-850 flex flex-col justify-between">
-                            <div class="p-6 space-y-4">
-                                <div class="flex justify-between items-start">
-                                    <span class="bg-gold-100 dark:bg-gold-950/40 text-gold-700 dark:text-gold-400 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full border border-gold-200/20">System architecture</span>
-                                    <span class="text-gray-400 text-xs"><i class="fa-solid fa-diagram-project mr-1"></i> Flow Diagram</span>
-                                </div>
-                                <h3 class="font-semibold text-base">CSE Data Flow Control</h3>
-                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light">
-                                    Design architecture showing systemic processing workflows across browser-level interactions. Demonstrates core flowchart principles.
-                                </p>
-                            </div>
-
-                            <div class="p-4 bg-gold-100/10 dark:bg-zinc-950/40 border-t border-gold-200/20 dark:border-zinc-800">
-                                <div class="bg-white dark:bg-zinc-900 p-3 rounded-xl border border-gold-200/20 dark:border-zinc-800 text-[10px] font-mono space-y-2">
-                                    <div class="flex justify-between items-center border border-dashed border-gold-200/30 p-1 bg-gold-50/50 dark:bg-zinc-950/50">
-                                        <span class="text-gold-600 font-bold">START</span>
-                                        <i class="fa-solid fa-arrow-right text-[9px] text-gray-400"></i>
-                                        <span>User Selects Tab</span>
-                                    </div>
-                                    <div class="flex justify-between items-center border border-dashed border-gold-200/30 p-1">
-                                        <span>Execute Router</span>
-                                        <i class="fa-solid fa-arrow-right text-[9px] text-gray-400"></i>
-                                        <span class="text-gold-500">Display Page</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- PAGE 6: CONTACT PAGE -->
+            <!-- PAGE 5: CONTACT PAGE -->
             <section id="page-contact" class="page-container flex-1 py-20 bg-white dark:bg-apple-dark transition-colors hidden">
                 <div class="max-w-4xl mx-auto px-6">
                     <div class="text-center max-w-2xl mx-auto mb-16">
@@ -759,32 +750,33 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         </div>
                     </div>
 
-                    <div class="bg-gold-50 dark:bg-apple-zinc rounded-2xl p-8 border border-gold-200/30 dark:border-zinc-850 no-print">
+                    <!-- REAL EMAIL SUBMISSION FORM TARGET -->
+                    <div class="bg-gold-50 dark:bg-apple-zinc rounded-2xl p-8 border border-gold-200/30 dark:border-zinc-850">
                         <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-[10px] uppercase tracking-wider text-gray-500 mb-2 font-semibold">Your Name</label>
-                                    <input type="text" required placeholder="John Doe" class="w-full bg-white dark:bg-zinc-950 border border-gold-200/30 dark:border-zinc-800 rounded-xl p-3 outline-none focus:ring-1 focus:ring-gold-500 text-sm">
+                                    <input type="text" id="contact-name" required placeholder="John Doe" class="w-full bg-white dark:bg-zinc-950 border border-gold-200/30 dark:border-zinc-800 rounded-xl p-3 outline-none focus:ring-1 focus:ring-gold-500 text-sm">
                                 </div>
                                 <div>
                                     <label class="block text-[10px] uppercase tracking-wider text-gray-500 mb-2 font-semibold">Your Email Address</label>
-                                    <input type="email" required placeholder="visitor@example.com" class="w-full bg-white dark:bg-zinc-950 border border-gold-200/30 dark:border-zinc-800 rounded-xl p-3 outline-none focus:ring-1 focus:ring-gold-500 text-sm">
+                                    <input type="email" id="contact-email" required placeholder="visitor@example.com" class="w-full bg-white dark:bg-zinc-950 border border-gold-200/30 dark:border-zinc-800 rounded-xl p-3 outline-none focus:ring-1 focus:ring-gold-500 text-sm">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-[10px] uppercase tracking-wider text-gray-500 mb-2 font-semibold">Topic of Discussion</label>
-                                <input type="text" required placeholder="Inquiry" class="w-full bg-white dark:bg-zinc-950 border border-gold-200/30 dark:border-zinc-800 rounded-xl p-3 outline-none focus:ring-1 focus:ring-gold-500 text-sm">
+                                <input type="text" id="contact-subject" required placeholder="Inquiry" class="w-full bg-white dark:bg-zinc-950 border border-gold-200/30 dark:border-zinc-800 rounded-xl p-3 outline-none focus:ring-1 focus:ring-gold-500 text-sm">
                             </div>
                             <div>
                                 <label class="block text-[10px] uppercase tracking-wider text-gray-500 mb-2 font-semibold">Your Message</label>
-                                <textarea required rows="4" placeholder="Hi Ninis..." class="w-full bg-white dark:bg-zinc-950 border border-gold-200/30 dark:border-zinc-800 rounded-xl p-3 outline-none focus:ring-1 focus:ring-gold-500 text-sm"></textarea>
+                                <textarea id="contact-message" required rows="4" placeholder="Hi Ninis..." class="w-full bg-white dark:bg-zinc-950 border border-gold-200/30 dark:border-zinc-800 rounded-xl p-3 outline-none focus:ring-1 focus:ring-gold-500 text-sm"></textarea>
                             </div>
 
                             <!-- Success banner -->
                             <div id="contact-success" class="hidden bg-gold-100 dark:bg-zinc-800 border border-gold-300 dark:border-zinc-700 text-gold-800 dark:text-gold-400 p-4 rounded-xl text-xs flex items-center gap-3">
                                 <i class="fa-solid fa-circle-check text-lg"></i>
                                 <div>
-                                    <strong>Message Simulation Sent!</strong> Your simulated message was processed.
+                                    <strong>Message Draft Compiled!</strong> Launching your local email client to transmit directly to ntwumasi@browning.edu.
                                 </div>
                             </div>
 
@@ -803,22 +795,17 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     <a href="#" onclick="navigateTo('page-about')" class="hover:text-gold-500 transition">About</a>
                     <a href="#" onclick="navigateTo('page-resume')" class="hover:text-gold-500 transition">CV Resume</a>
                     <a href="#" onclick="navigateTo('page-skills')" class="hover:text-gold-500 transition">Skills</a>
-                    <a href="#" onclick="navigateTo('page-projects')" class="hover:text-gold-500 transition">Work</a>
+                    <a href="#" onclick="navigateTo('page-contact')" class="hover:text-gold-500 transition">Contact</a>
                 </div>
             </footer>
         </main>
     </div>
 
-    <!-- 
-      PROCESS: WEB WORKSPACE JAVASCRIPT LOGIC
-      This script handles all dynamic changes on the webpage, such as theme changing, 
-      routing, page navigation, and game and visualizer logic.
-    -->
     <script>
         // Array of background styling configurations:
-        // Config 0: IMG_1327.jpg
-        // Config 1: IMG_1053 Small.jpeg
-        // Config 2: IMG_0594 Small.jpeg
+        // Config 0: IMG_1327.jpg (Uploaded)
+        // Config 1: IMG_1053 Small.jpeg (Uploaded)
+        // Config 2: IMG_0594 Small.jpeg (Uploaded)
         // Config 3: Glowing gold "NT" monogram on a black background
         const backgrounds = [
             "url('IMG_1327.jpg')", 
@@ -827,7 +814,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             "none"
         ];
 
-        // Backup high-quality Unsplash gold & white marble textures in case local files fail to load in sandboxed previews
+        // Backup premium gold & white marble textures in case local files fail to load in preview environments
         const fallbacks = [
             "url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920')",
             "url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1920')",
@@ -841,7 +828,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             const hero = document.getElementById("page-home");
             const ntBg = document.getElementById("nt-monogram-bg");
             const heroTextBlock = document.getElementById("hero-text-block");
-            const heroImageBlock = document.getElementById("hero-image-block");
             
             if (hero && ntBg) {
                 // If it is option index 3 (the custom NT Monogram black background)
@@ -906,7 +892,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
 
         // Standard JS Navigation Router for multi-page simulation
         function navigateTo(pageId) {
-            const pages = ['page-home', 'page-about', 'page-resume', 'page-skills', 'page-projects', 'page-contact'];
+            const pages = ['page-home', 'page-about', 'page-resume', 'page-skills', 'page-contact'];
             
             pages.forEach(p => {
                 const el = document.getElementById(p);
@@ -958,6 +944,29 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             });
         }
 
+        // Shows specific skills inside the dynamic overview box with transitions
+        function showSkillDescription(title, description) {
+            const portal = document.getElementById('skill-desc-portal');
+            const pTitle = document.getElementById('skill-portal-title');
+            const pBody = document.getElementById('skill-portal-body');
+            
+            if (portal && pTitle && pBody) {
+                // Instantly hide it first to allow animation reset
+                portal.classList.add('hidden', 'scale-95');
+                portal.classList.remove('scale-100');
+                
+                setTimeout(() => {
+                    pTitle.textContent = title;
+                    pBody.textContent = description;
+                    portal.classList.remove('hidden');
+                    // Trigger reflow for transition
+                    void portal.offsetWidth;
+                    portal.classList.add('scale-100');
+                    portal.classList.remove('scale-95');
+                }, 100);
+            }
+        }
+
         // Dark/Light Mode toggle handler
         function initTheme() {
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -977,79 +986,40 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             }
         }
 
-        // --- BINARY SEARCH GUESSING GAME LOGIC ---
-        let secretNumber = Math.floor(Math.random() * 20) + 1;
-        let attempts = 0;
-        const gameDisplay = document.getElementById('game-display');
-        const gameInput = document.getElementById('game-guess-input');
-
-        function playMiniGame() {
-            const guess = parseInt(gameInput.value);
-            if (isNaN(guess) || guess < 1 || guess > 20) {
-                gameDisplay.textContent = "Error: Input must be a valid number between 1 and 20!";
-                return;
-            }
-            attempts++;
-            if (guess === secretNumber) {
-                gameDisplay.textContent = `Correct! 🎉\nYou solved it in ${attempts} attempts.\nSecret target reset! Go again.`;
-                secretNumber = Math.floor(Math.random() * 20) + 1;
-                attempts = 0;
-            } else if (guess < secretNumber) {
-                gameDisplay.textContent = `Attempt ${attempts}: ${guess} is too low. Try higher!`;
-            } else {
-                gameDisplay.textContent = `Attempt ${attempts}: ${guess} is too high. Try lower!`;
-            }
-            gameInput.value = "";
-        }
-
-        // --- SORTING ALGORITHM SIMULATED STEP LOGIC ---
-        let sortingData = [40, 70, 20, 90, 50, 10];
-        const barsContainer = document.getElementById('sorting-bars');
-        const sortStatus = document.getElementById('sorting-status');
-
-        function renderSortingBars() {
-            barsContainer.innerHTML = '';
-            sortingData.forEach(val => {
-                const bar = document.createElement('div');
-                bar.style.height = `${val}%`;
-                bar.className = "bg-gold-500 w-full rounded-t transition-all duration-300 relative group flex items-end justify-center";
-                barsContainer.appendChild(bar);
-            });
-        }
-
-        function startBubbleSortSim() {
-            sortStatus.textContent = "Processing logic...";
-            sortStatus.className = "text-[10px] text-gold-500 font-mono animate-pulse";
-            
-            // Traditional bubble sorting pass comparison
-            for (let i = 0; i < sortingData.length - 1; i++) {
-                if (sortingData[i] > sortingData[i+1]) {
-                    let temp = sortingData[i];
-                    sortingData[i] = sortingData[i+1];
-                    sortingData[i+1] = temp;
-                    renderSortingBars();
-                    break;
-                }
-            }
+        // --- STABLE PDF PRINT HANDLER ---
+        function triggerPDFPrint() {
+            // First we explicitly navigate to the Resume section to ensure the DOM nodes are visible
+            navigateTo('page-resume');
+            // Give a short layout paint delay and then invoke the native print menu
             setTimeout(() => {
-                sortStatus.textContent = "Step completed!";
-                sortStatus.className = "text-[10px] text-green-500 font-mono";
+                window.print();
             }, 300);
         }
 
-        // Form submission simulation
+        // Form submission: Compiles inputs and launches local mail clients dynamically
         function handleContactSubmit(event) {
             event.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const visitorEmail = document.getElementById('contact-email').value;
+            const subject = document.getElementById('contact-subject').value;
+            const message = document.getElementById('contact-message').value;
+
+            const mailtoLink = `mailto:ntwumasi@browning.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Sender Name: " + name + "\nSender Email: " + visitorEmail + "\n\nMessage:\n" + message)}`;
+            
             const success = document.getElementById('contact-success');
             success.classList.remove('hidden');
             event.target.reset();
-            setTimeout(() => { success.classList.add('hidden'); }, 5000);
+            
+            // Redirect window location to launch native email client
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+                success.classList.add('hidden');
+            }, 1000);
         }
 
         // Initial launch parameters
         window.onload = function() {
             initTheme();
-            renderSortingBars();
             navigateTo('page-home'); // Ensures Home section displays immediately
             shuffleBackground();
         };
