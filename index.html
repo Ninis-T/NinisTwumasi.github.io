@@ -353,11 +353,15 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         <div class="w-12 h-[2px] bg-gold-400 mx-auto rounded mt-3"></div>
                         <p class="text-sm text-gray-400 mt-2">Sophomore at The Browning School, Dedicated to academic excellence and leadership.</p>
                         
-                        <!-- Print styling trigger button for keeping a PDF form -->
+                        <!-- 
+                          PROCESS: DYNAMIC GOOGLE DOC RESUME LINK
+                          Replaced previous PDF print function with a beautifully styled direct link 
+                          to your actual Google Doc Resume. Opens elegantly in a new tab.
+                        -->
                         <div class="mt-6 flex justify-center no-print">
-                            <button onclick="triggerPDFPrint()" class="px-6 py-2.5 bg-gold-500 hover:bg-gold-600 text-apple-dark font-semibold text-xs rounded-full uppercase tracking-wider shadow-md transition duration-300 flex items-center gap-2 font-sans">
-                                <i class="fa-solid fa-file-pdf"></i> Keep / Save PDF Resume
-                            </button>
+                            <a href="https://docs.google.com/document/d/1_xEiqBpSxp41RFDEtBHdz8Zk_Y3X_Y7rGdQGUwRF_eA/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 bg-gold-500 hover:bg-gold-600 text-apple-dark font-semibold text-xs rounded-full uppercase tracking-wider shadow-md transition duration-300 flex items-center gap-2 font-sans">
+                                <i class="fa-solid fa-file-invoice"></i> View My Google Doc Resume
+                            </a>
                         </div>
                     </div>
 
@@ -576,9 +580,9 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     <!-- Interactive Skill Filters -->
                     <div class="flex justify-center gap-3 mb-10 flex-wrap no-print font-sans">
                         <button onclick="filterSkills('all')" class="filter-btn px-5 py-2 bg-gold-500 text-apple-dark text-xs font-bold uppercase tracking-widest rounded-full transition shadow-sm">All</button>
-                        <button onclick="filterSkills('tech')" class="filter-btn px-5 py-2 bg-white dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full transition hover:border-gold-500">Tech &amp; Creative</button>
-                        <button onclick="filterSkills('academic')" class="filter-btn px-5 py-2 bg-white dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full transition hover:border-gold-500">Academic &amp; Speaking</button>
-                        <button onclick="filterSkills('personal')" class="filter-btn px-5 py-2 bg-white dark:bg-zinc-900 border border-gold-200 dark:border-zinc-800 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full transition hover:border-gold-500">Leadership</button>
+                        <button onclick="filterSkills('tech')" class="filter-btn px-5 py-2 bg-white dark:bg-zinc-900 border border-gold-200/20 dark:border-zinc-850 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full transition hover:border-gold-500">Tech &amp; Creative</button>
+                        <button onclick="filterSkills('academic')" class="filter-btn px-5 py-2 bg-white dark:bg-zinc-900 border border-gold-200/20 dark:border-zinc-850 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full transition hover:border-gold-500">Academic &amp; Speaking</button>
+                        <button onclick="filterSkills('personal')" class="filter-btn px-5 py-2 bg-white dark:bg-zinc-900 border border-gold-200/20 dark:border-zinc-850 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full transition hover:border-gold-500">Leadership</button>
                     </div>
 
                     <!-- Dynamic Skill Description Portal Frame -->
@@ -883,6 +887,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             document.body.style.overflow = 'hidden';
         }
 
+        // Close full screen overlay menu
         function closeMenuOverlay() {
             const overlay = document.getElementById('full-menu-overlay');
             overlay.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
@@ -984,16 +989,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                 document.documentElement.classList.add('dark');
                 localStorage.theme = 'dark';
             }
-        }
-
-        // --- STABLE PDF PRINT HANDLER ---
-        function triggerPDFPrint() {
-            // First we explicitly navigate to the Resume section to ensure the DOM nodes are visible
-            navigateTo('page-resume');
-            // Give a short layout paint delay and then invoke the native print menu
-            setTimeout(() => {
-                window.print();
-            }, 300);
         }
 
         // Form submission: Compiles inputs and launches local mail clients dynamically
