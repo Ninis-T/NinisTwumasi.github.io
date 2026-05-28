@@ -1,13 +1,3 @@
-<!-- 
-==================================================================
-NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
-==================================================================
-* Theme: Premium Gold, Dark Black, and Alabaster White
-* Style: Apple Minimalist Aesthetic
-* Host Compatibility: GitHub Pages (Single-file index.html)
-==================================================================
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +5,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ninis Twumasi | Sophomore Portfolio</title>
     
-    <!-- 
-      PROCESS: STYLING & DESIGN ARCHITECTURE
-      We import Tailwind CSS to build an ultra-clean, elegant design directly 
-      within our HTML class tags. We configure custom 'gold' and 'apple' 
-      design colors to match Apple's modern minimalist color palette.
-    -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -55,17 +39,9 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
         }
     </script>
 
-    <!-- FontAwesome: Used to load high-quality vector icons for academic, leadership, and athletic categories -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Playfair Display for headers and Inter for clean, readable body paragraphs -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&swap" rel="stylesheet">
 
-    <!-- 
-      PROCESS: LAYOUT TRANSITIONS & CUSTOM PRINT STYLING
-      * Smooth transitions make background image shuffling feel highly polished.
-      * Media Print Stylesheet isolates the resume section when printing or saving as a PDF,
-        ensuring everything else is hidden for a clean, academic layout.
-    -->
     <style>
         html {
             scroll-behavior: smooth;
@@ -133,22 +109,15 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
 </head>
 <body class="bg-gold-50 text-gray-900 dark:bg-apple-dark dark:text-gray-100 font-sans transition-colors duration-300 min-h-screen flex flex-col overflow-x-hidden">
 
-    <!-- Main Workspace Container -->
     <div class="flex flex-1 relative print-full-width">
         <main class="flex-1 flex flex-col min-h-screen print-full-width">
             
-            <!-- 
-              PROCESS: APPLE GLASS NAVIGATION HEADER
-              A sleek frosted glass navigation header that stays sticky at the top 
-              of the viewport and allows users to jump between sections instantly.
-            -->
             <header class="bg-white/90 dark:bg-apple-dark/90 backdrop-blur-md border-b border-gold-200/20 dark:border-zinc-900 sticky top-0 z-30 transition-colors no-print">
                 <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
                     <a href="#" onclick="navigateTo('page-home')" class="flex items-center gap-1.5 hover:opacity-85 transition text-gold-600 dark:text-gold-400">
                         <span class="font-serif italic font-semibold text-gold-500 dark:text-gold-400 tracking-wide text-xl">NinisT</span>
                     </a>
                     
-                    <!-- Desktop Header Navigation links -->
                     <div class="flex items-center gap-6">
                         <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-gray-600 dark:text-gray-300">
                             <a href="#" onclick="navigateTo('page-home')" class="nav-link hover:text-gold-500 transition duration-300">Home</a>
@@ -158,15 +127,12 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                             <a href="#" onclick="navigateTo('page-contact')" class="nav-link hover:text-gold-500 transition duration-300">Contact</a>
                         </nav>
 
-                        <!-- Theme & Menu Toggle Buttons -->
                         <div class="flex items-center gap-3 border-l border-gold-200/30 pl-4">
-                            <!-- Premium Light / Dark mode toggle switch -->
                             <button onclick="toggleDarkMode()" class="text-gray-400 hover:text-gold-500 p-2 rounded-full hover:bg-gold-100/30 transition">
                                 <i class="fa-solid fa-moon dark:hidden"></i>
                                 <i class="fa-solid fa-sun hidden dark:inline"></i>
                             </button>
-                            <!-- Apple Full Screen minimalist menu button -->
-                            <button id="menu-overlay-button" onclick="openMenuOverlay()" class="text-gray-700 dark:text-gray-200 hover:text-gold-500 p-2 rounded-full hover:bg-gold-100/30 transition flex items-center gap-1.5 font-sans">
+                            <button id="menu-overlay-button" onclick="openMenuOverlay()" class="text-gray-700 dark:text-gray-200 hover:text-gold-500 p-2 rounded-full hover:bg-gold-100/30 transition flex items-center gap-1.5 font-sans font-semibold">
                                 <span class="text-[10px] font-bold tracking-widest uppercase hidden sm:inline">Menu</span>
                                 <i class="fa-solid fa-bars-staggered text-lg"></i>
                             </button>
@@ -175,11 +141,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                 </div>
             </header>
 
-            <!-- 
-              PROCESS: FULL-PAGE OVERLAY MENU
-              Covers the page it is on with a sleek blurred glass backdrop. 
-              Provides a beautiful navigation experience.
-            -->
             <div id="full-menu-overlay" class="fixed inset-0 bg-white/98 dark:bg-apple-dark/98 backdrop-blur-2xl z-50 flex flex-col justify-between p-8 transition-all duration-500 opacity-0 pointer-events-none scale-95 no-print">
                 <div class="flex justify-between items-center max-w-6xl w-full mx-auto">
                     <span class="font-serif italic font-semibold text-2xl tracking-wide text-gold-600 dark:text-gold-400">NinisT</span>
@@ -188,7 +149,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     </button>
                 </div>
 
-                <!-- Vertical navigation list inside overlay -->
                 <nav class="flex flex-col items-center justify-center space-y-6 text-center my-auto font-sans">
                     <span class="text-[11px] font-bold text-gold-500 uppercase tracking-widest mb-2">Select Page Module</span>
                     <a href="#" onclick="navigateTo('page-home')" class="text-4xl sm:text-6xl font-serif font-light text-gray-800 dark:text-gray-100 hover:text-gold-500 transition tracking-tight">01 / Home</a>
@@ -204,15 +164,8 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                 </div>
             </div>
 
-            <!-- PAGE 1: HOME PAGE (Active by default) -->
             <section id="page-home" class="page-container flex-1 bg-transition relative flex items-center py-16 md:py-28 min-h-[85vh] bg-gold-50 dark:bg-apple-dark">
                 
-                <!-- 
-                  PROCESS: HIGH-RESOLUTION VECTOR MONOGRAM OVERLAY
-                  Instead of rendering text inside a blurred container, this layer utilizes
-                  crisp, mathematical SVG vectors to display the glowing gold "NT" monogram 
-                  perfectly on a deep black background when Option 4 is active.
-                -->
                 <div id="nt-monogram-bg" class="absolute inset-0 bg-black flex flex-col items-center justify-center pointer-events-none opacity-0 transition-opacity duration-1000 no-print z-0">
                     <svg class="w-64 h-64 drop-shadow-[0_0_20px_rgba(212,175,55,0.4)]" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="100" cy="100" r="80" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="4 4" class="animate-spin-slow" />
@@ -228,17 +181,15 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     <span class="text-[10px] text-gold-500/70 font-mono tracking-[0.3em] uppercase mt-4">Ninis Twumasi Portfolio</span>
                 </div>
 
-                <!-- Inner Content Container -->
                 <div class="max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
                     
-                    <!-- Hero Information Text -->
                     <div class="lg:col-span-7 space-y-6" id="hero-text-block">
                         <div class="inline-flex items-center gap-2 bg-white/90 dark:bg-gold-950/20 text-gold-700 dark:text-gold-400 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border border-gold-200/50">
                             <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
                             Browning Sophomore
                         </div>
                         <h1 class="text-5xl sm:text-7xl font-serif font-light tracking-tight leading-none text-gray-900 dark:text-white">
-                            Hi, I am <br><span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-gold-700 display-firstName">Ninis</span> Twumasi
+                            Hi, I am <br><span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-gold-700">Ninis</span> Twumasi
                         </h1>
                         <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 font-light tracking-wide">
                             Sophomore &amp; CS Student at The Browning School
@@ -247,7 +198,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                             Welcome to my personal archive. This platform represents who I am, a 15-year-old student from Manhattan, NYC, doing my best to make an impact both in and out of the classroom.
                         </p>
                         
-                        <!-- Hero Actions -->
                         <div class="flex flex-wrap gap-4 pt-4 no-print">
                             <button onclick="navigateTo('page-about')" class="px-8 py-3.5 bg-gold-500 hover:bg-gold-600 text-apple-dark text-xs font-bold uppercase tracking-wider rounded-full shadow-lg hover:shadow-gold-500/20 transition flex items-center gap-2 font-sans font-semibold">
                                 Explore About Me <i class="fa-solid fa-arrow-right"></i>
@@ -258,15 +208,12 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         </div>
                     </div>
 
-                    <!-- Right Portrait Picture Frame with strict aspect constraints to avoid blur -->
                     <div class="lg:col-span-5 w-full flex justify-center z-10" id="hero-image-block">
                         <div class="relative group max-w-sm w-full">
                             <div class="absolute -inset-1.5 bg-gradient-to-tr from-gold-400 via-gold-200 to-white rounded-3xl blur opacity-30 group-hover:opacity-45 transition duration-1000"></div>
                             <div class="relative bg-white dark:bg-zinc-950 p-3 rounded-3xl border border-gold-200/30 dark:border-zinc-800/80 shadow-2xl">
                                 <div class="aspect-square w-full rounded-2xl overflow-hidden bg-gold-100/50 dark:bg-zinc-900 relative">
-                                    <!-- Displays Ninis' uploaded image with strict cover scale -->
                                     <img src="IMG_0594 Small.jpeg" alt="Ninis Twumasi Portrait" class="w-full h-full object-cover object-center" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
-                                    <!-- Fallback design icon if local file isn't loaded -->
                                     <div class="hidden absolute inset-0 flex items-center justify-center bg-zinc-900">
                                         <i class="fa-solid fa-user-tie text-gold-500 text-6xl"></i>
                                     </div>
@@ -281,7 +228,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                 </div>
             </section>
 
-            <!-- PAGE 2: ABOUT ME -->
             <section id="page-about" class="page-container flex-1 py-20 bg-white dark:bg-apple-dark transition-colors hidden">
                 <div class="max-w-6xl mx-auto px-6">
                     <div class="text-center max-w-2xl mx-auto mb-16">
@@ -291,7 +237,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-                        <!-- Left Image Frame -->
                         <div class="md:col-span-5 flex flex-col items-center">
                             <div class="relative group w-full max-w-xs">
                                 <div class="absolute -inset-1 bg-gradient-to-r from-gold-300 to-gold-600 rounded-2xl blur opacity-35 transition duration-1000"></div>
@@ -306,7 +251,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                             </div>
                         </div>
 
-                        <!-- Right Biography details -->
                         <div class="md:col-span-7 space-y-6">
                             <h3 class="text-2xl font-serif font-light text-gray-800 dark:text-gray-200 tracking-wide">
                                 Manhattan Student &amp; Community Advocate
@@ -344,7 +288,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                 </div>
             </section>
 
-            <!-- PAGE 3: RESUME PAGE -->
             <section id="page-resume" class="page-container flex-1 py-20 bg-gold-100/30 dark:bg-apple-dark/60 transition-colors hidden">
                 <div class="max-w-6xl mx-auto px-6">
                     <div class="text-center max-w-2xl mx-auto mb-12">
@@ -353,11 +296,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         <div class="w-12 h-[2px] bg-gold-400 mx-auto rounded mt-3"></div>
                         <p class="text-sm text-gray-400 mt-2">Sophomore at The Browning School, Dedicated to academic excellence and leadership.</p>
                         
-                        <!-- 
-                          PROCESS: DYNAMIC GOOGLE DOC RESUME LINK
-                          Replaced previous PDF print function with a beautifully styled direct link 
-                          to your actual Google Doc Resume. Opens elegantly in a new tab.
-                        -->
                         <div class="mt-6 flex justify-center no-print">
                             <a href="https://docs.google.com/document/d/1_xEiqBpSxp41RFDEtBHdz8Zk_Y3X_Y7rGdQGUwRF_eA/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 bg-gold-500 hover:bg-gold-600 text-apple-dark font-semibold text-xs rounded-full uppercase tracking-wider shadow-md transition duration-300 flex items-center gap-2 font-sans font-semibold">
                                 <i class="fa-solid fa-file-invoice"></i> View My Google Doc Resume
@@ -365,10 +303,8 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         </div>
                     </div>
 
-                    <!-- Highlighted Group Spotlights: Three Columns of Spotlights (Coalition, Soccer Captain, Track & Field) -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                         
-                        <!-- Spotlight 1: Black Student Coalition NYC Representative -->
                         <div class="bg-white dark:bg-apple-zinc border border-gold-200/40 dark:border-zinc-800 rounded-3xl p-6 flex flex-col justify-between">
                             <div class="space-y-4">
                                 <div class="rounded-2xl overflow-hidden relative shadow-md aspect-[4/3] bg-zinc-900">
@@ -387,11 +323,9 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                             </div>
                         </div>
 
-                        <!-- Spotlight 2: Soccer JV Captain Spotlight showing the real Soccer .webp photo -->
                         <div class="bg-white dark:bg-apple-zinc border border-gold-200/40 dark:border-zinc-800 rounded-3xl p-6 flex flex-col justify-between">
                             <div class="space-y-4">
                                 <div class="rounded-2xl overflow-hidden relative shadow-md aspect-[4/3] bg-zinc-900">
-                                    <!-- Displays Soccer .webp visual -->
                                     <img src="Soccer .webp" alt="JV Soccer Action Shot" class="w-full h-full object-cover object-center" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
                                     <div class="hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-gold-900 via-apple-dark to-black text-center p-6 text-white">
                                         <i class="fa-solid fa-soccer-ball text-gold-500 text-4xl mb-3 animate-pulse"></i>
@@ -408,11 +342,9 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                             </div>
                         </div>
 
-                        <!-- Spotlight 3: Varsity Indoor/Outdoor Track Spotlight showing your running picture, renamed to image.png -->
                         <div class="bg-white dark:bg-apple-zinc border border-gold-200/40 dark:border-zinc-800 rounded-3xl p-6 flex flex-col justify-between">
                             <div class="space-y-4">
                                 <div class="rounded-2xl overflow-hidden relative shadow-md aspect-[4/3] bg-zinc-900">
-                                    <!-- Displays Running Action Shot image.png inside the Codespace repository -->
                                     <img src="image.png" alt="Varsity Track Action Shot" class="w-full h-full object-cover object-center" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
                                     <div class="hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-gold-900 via-apple-dark to-black text-center p-6 text-white">
                                         <i class="fa-solid fa-person-running text-gold-500 text-4xl mb-3 animate-pulse"></i>
@@ -432,16 +364,13 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                        <!-- Left Timeline -->
                         <div class="lg:col-span-8 space-y-8">
                             <div class="bg-white dark:bg-apple-zinc p-8 rounded-2xl shadow-sm border border-gold-200/30 dark:border-zinc-850">
-                                <!-- PROCESS: Left column timeline renamed to Leadership -->
                                 <h3 class="font-serif font-bold text-lg text-gold-600 dark:text-gold-400 border-b border-gold-100 dark:border-zinc-800 pb-3 mb-6 flex items-center gap-2">
                                     <i class="fa-solid fa-scroll text-sm"></i> Leadership
                                 </h3>
 
                                 <div class="relative border-l-2 border-gold-200 dark:border-zinc-800 ml-2 pl-6 space-y-8 font-sans">
-                                    <!-- JV Soccer Captain Timeline node -->
                                     <div class="relative">
                                         <span class="absolute -left-[31px] top-1.5 bg-gold-500 w-4 h-4 rounded-full border-4 border-white dark:border-apple-zinc"></span>
                                         <span class="text-[10px] font-mono font-bold text-gold-600 dark:text-gold-400 uppercase tracking-widest">2025</span>
@@ -451,7 +380,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                         </p>
                                     </div>
 
-                                    <!-- Browning Food Recovery Program -->
                                     <div class="relative">
                                         <span class="absolute -left-[31px] top-1.5 bg-gold-500 w-4 h-4 rounded-full border-4 border-white dark:border-apple-zinc"></span>
                                         <span class="text-[10px] font-mono font-bold text-gold-600 dark:text-gold-400 uppercase tracking-widest">Founder</span>
@@ -461,7 +389,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                         </p>
                                     </div>
 
-                                    <!-- All-School Green Team -->
                                     <div class="relative">
                                         <span class="absolute -left-[31px] top-1.5 bg-gold-500 w-4 h-4 rounded-full border-4 border-white dark:border-apple-zinc"></span>
                                         <span class="text-[10px] font-mono font-bold text-gold-600 dark:text-gold-400 uppercase tracking-widest">2022 – 2024</span>
@@ -471,7 +398,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                         </p>
                                     </div>
 
-                                    <!-- Class Representative -->
                                     <div class="relative">
                                         <span class="absolute -left-[31px] top-1.5 bg-gold-500 w-4 h-4 rounded-full border-4 border-white dark:border-apple-zinc"></span>
                                         <span class="text-[10px] font-mono font-bold text-gold-600 dark:text-gold-400 uppercase tracking-widest">2025</span>
@@ -481,7 +407,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                         </p>
                                     </div>
 
-                                    <!-- Student Council -->
                                     <div class="relative">
                                         <span class="absolute -left-[31px] top-1.5 bg-gold-500 w-4 h-4 rounded-full border-4 border-white dark:border-apple-zinc"></span>
                                         <span class="text-[10px] font-mono font-bold text-gold-600 dark:text-gold-400 uppercase tracking-widest">2021 – 2024</span>
@@ -494,9 +419,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                             </div>
                         </div>
 
-                        <!-- Right Column Timelines -->
                         <div class="lg:col-span-4 space-y-6">
-                            <!-- Education Card -->
                             <div class="bg-white dark:bg-apple-zinc p-6 rounded-2xl shadow-sm border border-gold-200/30 dark:border-zinc-850">
                                 <h3 class="font-serif font-bold text-base text-gold-600 dark:text-gold-400 border-b border-gold-100 dark:border-zinc-800 pb-2 mb-4 flex items-center gap-2">
                                     <i class="fa-solid fa-graduation-cap"></i> Education
@@ -508,7 +431,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 </div>
                             </div>
 
-                            <!-- Summer Counselor Job Card -->
                             <div class="bg-white dark:bg-apple-zinc p-6 rounded-2xl shadow-sm border border-gold-200/30 dark:border-zinc-850">
                                 <h3 class="font-serif font-bold text-base text-gold-600 dark:text-gold-400 border-b border-gold-100 dark:border-zinc-800 pb-2 mb-4 flex items-center gap-2">
                                     <i class="fa-solid fa-briefcase"></i> Experience
@@ -523,13 +445,11 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 </div>
                             </div>
 
-                            <!-- Academic Pursuits and Clubs Card -->
                             <div class="bg-white dark:bg-apple-zinc p-6 rounded-2xl shadow-sm border border-gold-200/30 dark:border-zinc-850">
                                 <h3 class="font-serif font-bold text-base text-gold-600 dark:text-gold-400 border-b border-gold-100 dark:border-zinc-800 pb-2 mb-4 flex items-center gap-2">
                                     <i class="fa-solid fa-bookmark"></i> Academic Clubs
                                 </h3>
                                 <ul class="space-y-4 text-xs font-sans">
-                                    <!-- Grytte with Browning Newspaper Link (Moved here from Left Timeline) -->
                                     <li class="border-b border-gold-100 dark:border-zinc-800 pb-2 last:border-b-0 last:pb-0">
                                         <div class="flex justify-between items-center">
                                             <p class="font-semibold text-gray-900 dark:text-white text-xs">Grytte, Upper School Newspaper</p>
@@ -539,7 +459,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                         </div>
                                         <p class="text-gray-400 mt-0.5">Grytte is the upper school newspaper where I develop my skills in writing about my community and informing people of major events happening at my school.</p>
                                     </li>
-                                    <!-- Time For Kids Reporter Node with Direct URL -->
                                     <li class="border-b border-gold-100 dark:border-zinc-800 pb-2 last:border-b-0 last:pb-0">
                                         <div class="flex justify-between items-center">
                                             <p class="font-semibold text-gray-900 dark:text-white text-xs">Time for Kids Reporter (2023–2024)</p>
@@ -557,7 +476,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                         <p class="font-semibold text-gray-900 dark:text-white text-xs">Debate Team (2024–2026)</p>
                                         <p class="text-gray-400 mt-0.5">Competed in debates focused on argumentation, public speaking, and analytical reasoning. Improved my ability to think critically, communicate effectively, and defend positions on complex issues.</p>
                                     </li>
-                                    <!-- Urban Barcoding Scientific writing with Direct Symposium URL -->
                                     <li class="border-b border-gold-100 dark:border-zinc-800 pb-2 last:border-b-0 last:pb-0">
                                         <div class="flex justify-between items-center">
                                             <p class="font-semibold text-gray-900 dark:text-white text-xs">Urban Barcoding (2024–2025)</p>
@@ -574,7 +492,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                 </div>
             </section>
 
-            <!-- PAGE 4: SKILLS PAGE -->
             <section id="page-skills" class="page-container flex-1 py-20 bg-white dark:bg-apple-dark transition-colors hidden">
                 <div class="max-w-6xl mx-auto px-6">
                     <div class="text-center max-w-2xl mx-auto mb-6">
@@ -584,7 +501,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         <p class="text-sm text-zinc-400 mt-2 font-light animate-pulse">Click on any skill card below to view specific experience details and summaries!</p>
                     </div>
 
-                    <!-- Interactive Skill Filters -->
                     <div class="flex justify-center gap-3 mb-10 flex-wrap no-print font-sans">
                         <button onclick="filterSkills('all')" class="filter-btn px-5 py-2 bg-gold-500 text-apple-dark text-xs font-bold uppercase tracking-widest rounded-full transition shadow-sm">All</button>
                         <button onclick="filterSkills('tech')" class="filter-btn px-5 py-2 bg-white dark:bg-zinc-900 border border-gold-200/20 dark:border-zinc-850 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full transition hover:border-gold-500">Tech &amp; Creative</button>
@@ -592,20 +508,18 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         <button onclick="filterSkills('personal')" class="filter-btn px-5 py-2 bg-white dark:bg-zinc-900 border border-gold-200/20 dark:border-zinc-850 text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-widest rounded-full transition hover:border-gold-500">Leadership</button>
                     </div>
 
-                    <!-- Dynamic Skill Description Portal Frame -->
                     <div id="skill-desc-portal" class="max-w-3xl mx-auto mb-12 bg-gold-100/60 dark:bg-zinc-900/60 border border-gold-200 dark:border-zinc-800 p-6 rounded-2xl shadow-lg text-center transition-all duration-300 transform scale-100 hidden">
                         <h4 class="font-serif font-bold text-gold-600 dark:text-gold-400 text-lg" id="skill-portal-title">Skill Overview</h4>
                         <p class="text-sm text-gray-600 dark:text-zinc-300 mt-2 leading-relaxed font-light max-w-xl mx-auto" id="skill-portal-body">Click a card to load information.</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="skills-grid">
-                        <!-- Tech / Creative Skills -->
                         <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300 animate-fade-in hover:border-gold-500/50 cursor-pointer" data-category="tech">
                             <h3 class="font-semibold text-sm text-gold-600 dark:text-gold-400 flex items-center gap-2 border-b border-gold-200/20 dark:border-zinc-800 pb-2">
                                 <i class="fa-solid fa-laptop-code text-gold-500"></i> Tech &amp; Creative
                             </h3>
                             <div class="space-y-4">
-                                <div onclick="showSkillDescription('Python Coding', 'Python: I understand basic syntax, variables, loop control structures, and computational logic.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
+                                <div onclick="showSkillDescription('Python Coding', 'Python: I know basic code and computer logic.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-mono">Python Coding</span>
                                         <span class="font-bold text-[10px] text-gold-500">Click to view</span>
@@ -614,7 +528,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 75%;"></div>
                                     </div>
                                 </div>
-                                <div onclick="showSkillDescription('HTML Structure', 'HTML: I am able to construct structured web designs, and like Python, I have a solid understanding of logic and syntax.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
+                                <div onclick="showSkillDescription('HTML Structure', 'HTML: I was able to code this website and like python i do have knowledge on code.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-mono">HTML Structure</span>
                                         <span class="font-bold text-[10px] text-gold-500">Click to view</span>
@@ -623,7 +537,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 85%;"></div>
                                     </div>
                                 </div>
-                                <div onclick="showSkillDescription('Onshape CAD Program', 'CAD: I am able to model real-world objects in 3D and plan out complex engineering items using computer-aided design.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
+                                <div onclick="showSkillDescription('Onshape CAD Program', 'CAD: I am able to cad real world objects and i have a great ablity to plan out complex item using cad.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-mono">Onshape CAD Program</span>
                                         <span class="font-bold text-[10px] text-gold-500">Click to view</span>
@@ -632,7 +546,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 80%;"></div>
                                     </div>
                                 </div>
-                                <div onclick="showSkillDescription('Creative Journalism', 'Journalism: Over the past few years, I have written extensively to share critical information, including articles published directly to Time for Kids and Browning’s Upper School Newspaper, Grytte.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
+                                <div onclick="showSkillDescription('Creative Journalism', 'Journalism: Over the past few years I havee been writing a lot to spread information, including articles published directly to Time for Kids and Browning’s Upper School Newspaper, Grytte.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-mono">Creative Journalism</span>
                                         <span class="font-bold text-[10px] text-gold-500">Click to view</span>
@@ -644,7 +558,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                             </div>
                         </div>
 
-                        <!-- Academic Skills -->
                         <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300 animate-fade-in hover:border-gold-500/50 cursor-pointer" data-category="academic">
                             <h3 class="font-semibold text-sm text-gold-600 dark:text-gold-400 flex items-center gap-2 border-b border-gold-200/20 dark:border-zinc-800 pb-2">
                                 <i class="fa-solid fa-brain text-gold-500"></i> Academic &amp; Speaking
@@ -659,7 +572,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 65%;"></div>
                                     </div>
                                 </div>
-                                <div onclick="showSkillDescription('Public Speaking & Debate', 'Debate & Public Speaking: I have spent years building public speaking skills, reasoning under pressure, and confidently presenting arguments.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
+                                <div onclick="showSkillDescription('Public Speaking & Debate', 'Debate & Public Speaking: I have spend years building public speaking skills, reasoning under pressure, and confidently presenting arguments.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span>Public Speaking</span>
                                         <span class="font-bold text-[10px] text-gold-500">Click to view</span>
@@ -689,7 +602,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                             </div>
                         </div>
 
-                        <!-- Personal Skills -->
                         <div class="skill-card bg-gold-100/20 dark:bg-zinc-900/40 p-8 rounded-2xl border border-gold-200/20 dark:border-zinc-850 space-y-4 transition-all duration-300 animate-fade-in hover:border-gold-500/50 cursor-pointer" data-category="personal">
                             <h3 class="font-semibold text-sm text-gold-600 dark:text-gold-400 flex items-center gap-2 border-b border-gold-200/20 dark:border-zinc-800 pb-2">
                                 <i class="fa-solid fa-people-arrows text-gold-500"></i> Leadership &amp; Community
@@ -728,7 +640,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                 </div>
             </section>
 
-            <!-- PAGE 5: CONTACT PAGE -->
             <section id="page-contact" class="page-container flex-1 py-20 bg-white dark:bg-apple-dark transition-colors hidden">
                 <div class="max-w-4xl mx-auto px-6">
                     <div class="text-center max-w-2xl mx-auto mb-16">
@@ -739,19 +650,16 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 font-sans">
-                        <!-- Work Email -->
                         <div class="bg-gold-50 dark:bg-apple-zinc p-6 rounded-2xl border border-gold-200/30 text-center space-y-2">
                             <i class="fa-solid fa-envelope text-gold-500 text-2xl"></i>
                             <h4 class="font-semibold text-xs uppercase tracking-wider text-gray-500">Work Email</h4>
                             <p class="text-sm font-semibold text-gold-600 dark:text-gold-400 break-all select-all font-mono">ntwumasi@browning.edu</p>
                         </div>
-                        <!-- Personal Email -->
                         <div class="bg-gold-50 dark:bg-apple-zinc p-6 rounded-2xl border border-gold-200/30 text-center space-y-2">
                             <i class="fa-solid fa-envelope-open text-gold-500 text-2xl"></i>
                             <h4 class="font-semibold text-xs uppercase tracking-wider text-gray-500">Personal Email</h4>
                             <p class="text-sm font-semibold text-gold-600 dark:text-gold-400 break-all select-all font-mono">ninist2010@gmail.com</p>
                         </div>
-                        <!-- LinkedIn -->
                         <div class="bg-gold-50 dark:bg-apple-zinc p-6 rounded-2xl border border-gold-200/30 text-center space-y-2">
                             <i class="fa-brands fa-linkedin text-gold-500 text-2xl"></i>
                             <h4 class="font-semibold text-xs uppercase tracking-wider text-gray-500">LinkedIn</h4>
@@ -761,7 +669,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         </div>
                     </div>
 
-                    <!-- REAL EMAIL SUBMISSION FORM TARGET -->
                     <div class="bg-gold-50 dark:bg-apple-zinc rounded-2xl p-8 border border-gold-200/30 dark:border-zinc-850">
                         <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -783,7 +690,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <textarea id="contact-message" required rows="4" placeholder="Hi Ninis..." class="w-full bg-white dark:bg-zinc-950 border border-gold-200/30 dark:border-zinc-800 rounded-xl p-3 outline-none focus:ring-1 focus:ring-gold-500 text-sm"></textarea>
                             </div>
 
-                            <!-- Success banner -->
                             <div id="contact-success" class="hidden bg-gold-100 dark:bg-zinc-800 border border-gold-300 dark:border-zinc-700 text-gold-800 dark:text-gold-400 p-4 rounded-xl text-xs flex items-center gap-3">
                                 <i class="fa-solid fa-circle-check text-lg"></i>
                                 <div>
@@ -799,7 +705,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                 </div>
             </section>
 
-            <!-- Elegant Simple Footer -->
             <footer class="bg-white dark:bg-apple-dark border-t border-gold-200/20 dark:border-zinc-900 py-12 text-center text-xs text-gray-500 dark:text-gray-400 space-y-4 mt-auto no-print">
                 <p>&copy; 2026 <span>Ninis Twumasi</span>. Developed for CSE Portfolios.</p>
                 <div class="flex justify-center gap-4 text-xs font-medium font-sans">
