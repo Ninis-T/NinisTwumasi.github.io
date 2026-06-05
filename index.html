@@ -241,8 +241,8 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                             <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
                             Browning Sophomore
                         </div>
-                        <h1 class="text-5xl sm:text-7xl font-serif font-light tracking-tight leading-none mt-4" id="hero-title">
-                            Hi, I am <br><span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-500 to-gold-700">Ninis</span> Twumasi
+                        <h1 class="text-5xl sm:text-7xl font-serif font-light tracking-tight leading-none mt-4 animate-fade-in" id="hero-title">
+                            Hi, I am <br><span class="font-bold text-gold-500 dark:text-gold-400">Ninis</span> Twumasi
                         </h1>
                         <p class="text-lg md:text-xl font-light tracking-wide mt-2" id="hero-subtitle">
                             Sophomore &amp; CS Student at The Browning School
@@ -423,8 +423,8 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         <div class="bg-white dark:bg-apple-zinc border border-gold-200/40 dark:border-zinc-800 rounded-3xl p-6 flex flex-col justify-between">
                             <div class="space-y-4">
                                 <div class="rounded-2xl overflow-hidden relative shadow-md aspect-[4/3] bg-zinc-900">
-                                    <!-- Displays Running Action Shot image.png inside the Codespace repository -->
-                                    <img src="image.png" alt="Varsity Track Action Shot" class="w-full h-full object-cover object-center" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                    <!-- Displays Running Action Shot image.png inside the Codespace repository (Using object-top to prevent head crop) -->
+                                    <img src="image.png" alt="Varsity Track Action Shot" class="w-full h-full object-cover object-top" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
                                     <div class="hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-gold-900 via-apple-dark to-black text-center p-6 text-white">
                                         <i class="fa-solid fa-person-running text-gold-500 text-4xl mb-3 animate-pulse"></i>
                                         <h4 class="font-serif text-lg font-bold text-gold-300">Varsity Track</h4>
@@ -872,7 +872,8 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 </div>
                             </div>
 
-                            <button type="submit" class="w-full py-3 bg-gold-500 hover:bg-gold-600 text-apple-dark font-semibold rounded-full transition shadow-md hover:shadow-gold-500/10 flex items-center justify-center gap-2 font-sans">
+                            <!-- Form send button -->
+                            <button type="submit" class="w-full py-3 bg-gold-500 hover:bg-gold-600 text-apple-dark font-semibold rounded-full transition shadow-md hover:shadow-gold-500/10 flex items-center justify-center gap-2 font-sans font-bold">
                                 <i class="fa-solid fa-paper-plane text-xs"></i> Send Message
                             </button>
                         </form>
@@ -954,13 +955,13 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     ntBg.classList.add("opacity-0");
                     ntBg.classList.remove("opacity-100");
                     
-                    // Reset text block back to elegant simple styling
+                    // Reset text block back to elegant semi-transparent glass styling so pictures are visible through it!
                     if (heroTextBlock) {
-                        heroTextBlock.className = "lg:col-span-7 space-y-6 bg-white/90 p-6 md:p-8 rounded-3xl border border-gold-200/50 shadow-2xl relative z-10 transition-all duration-500 backdrop-blur-md text-gray-900";
+                        heroTextBlock.className = "lg:col-span-7 space-y-6 bg-white/20 dark:bg-black/35 p-6 md:p-8 rounded-3xl border border-white/25 dark:border-white/10 shadow-2xl relative z-10 transition-all duration-500 backdrop-blur-md text-gray-900 dark:text-white";
                     }
-                    if (heroTitle) heroTitle.className = "text-5xl sm:text-7xl font-serif font-light tracking-tight leading-none text-gray-900 mt-4";
-                    if (heroSubtitle) heroSubtitle.className = "text-lg md:text-xl font-light tracking-wide mt-2 text-gold-600";
-                    if (heroDescription) heroDescription.className = "leading-relaxed max-w-xl text-sm font-light mt-4 text-gray-700";
+                    if (heroTitle) heroTitle.className = "text-5xl sm:text-7xl font-serif font-light tracking-tight leading-none mt-4 text-gray-900 dark:text-white";
+                    if (heroSubtitle) heroSubtitle.className = "text-lg md:text-xl font-light tracking-wide mt-2 text-gold-600 dark:text-gold-300";
+                    if (heroDescription) heroDescription.className = "leading-relaxed max-w-xl text-sm font-light mt-4 text-gray-800 dark:text-gray-300";
                     
                     if (heroImageBlock) {
                         heroImageBlock.classList.remove("opacity-0", "pointer-events-none");
@@ -969,7 +970,9 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     // Apply image backgrounds
                     hero.style.backgroundImage = backgrounds[currentBgIndex];
                     hero.style.backgroundSize = "cover";
-                    hero.style.backgroundPosition = "center";
+                    // PROCESS: Adjust background vertical alignment to 15% (top-focused center alignment)
+                    // This guarantees that heads, faces, and sunglasses in vertical portrait photos are preserved and never cropped on wide landscape computer displays.
+                    hero.style.backgroundPosition = "center 15%";
                     
                     // Verify if local image successfully loaded, if not, use premium backup fallback
                     const testImg = new Image();
@@ -1164,6 +1167,27 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             } else {
                 document.documentElement.classList.remove('dark');
             }
+        }
+
+        // Form submission: Compiles inputs and launches local mail clients dynamically
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const visitorEmail = document.getElementById('contact-email').value;
+            const subject = document.getElementById('contact-subject').value;
+            const message = document.getElementById('contact-message').value;
+
+            const mailtoLink = `mailto:ntwumasi@browning.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Sender Name: " + name + "\nSender Email: " + visitorEmail + "\n\nMessage:\n" + message)}`;
+            
+            const success = document.getElementById('contact-success');
+            success.classList.remove('hidden');
+            event.target.reset();
+            
+            // Redirect window location to launch native email client
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+                success.classList.add('hidden');
+            }, 1000);
         }
 
         // Initial launch parameters
