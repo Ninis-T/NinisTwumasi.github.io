@@ -233,37 +233,36 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     
                     <!-- 
                       PROCESS: HERO TEXT BLOCK WITH ULTRA-TRANSPARENT GLASS OVERLAY
-                      We align this cleanly on the left. The transparent frosted card styling
-                      ensures that Ninis' portrait on the right and background shuffle shots are
-                      completely visible, while maintaining crisp contrast and perfect legibility.
+                      We align this cleanly to the top-left on desktop using Tailwind positions.
+                      It is wrapped in a high-transparency frosted glass panel so that your portrait
+                      and background photos are fully visible underneath!
                     -->
-                    <div class="max-w-xl p-6 md:p-8 rounded-3xl bg-white/20 dark:bg-black/35 backdrop-blur-md border border-white/25 dark:border-white/10 shadow-xl transition-all duration-500 self-start lg:self-center" id="ninis-home-text-container">
-                        <div class="inline-flex items-center gap-2 bg-white/90 dark:bg-gold-950/20 text-gold-700 dark:text-gold-400 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border border-gold-200/50">
+                    <div class="max-w-lg p-6 md:p-8 rounded-3xl bg-white/5 dark:bg-black/20 backdrop-blur-sm border border-white/10 shadow-xl transition-all duration-500 self-start mt-4 lg:mt-0" id="ninis-home-text-container">
+                        <div class="inline-flex items-center gap-2 bg-white/95 dark:bg-gold-950/40 text-gold-700 dark:text-gold-400 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border border-gold-200/50">
                             <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
                             Browning Sophomore
                         </div>
                         
                         <!-- 
-                          PROCESS: CRITICAL PREV-OVERRIDE FIX
-                          We use a completely unique, customized ID ('ninis-title-brand') to bypass 
-                          and lock out any residual parental customizer scripts from clearing Ninis' name.
+                          PROCESS: CRITICAL CUSTOM VALUE FIX
+                          Completely removed all customizer classes (display-firstName etc.) so the parent iframe cannot empty this text node on load.
                         -->
-                        <h1 class="text-4xl sm:text-6xl font-serif font-light tracking-tight leading-none mt-4 text-gray-900 dark:text-white" id="ninis-title-brand">
-                            Hi, I am <br><span class="font-bold text-gold-500 dark:text-gold-400" id="ninis-fullname-holder">Ninis</span> Twumasi
+                        <h1 class="text-4xl sm:text-5xl font-serif font-light tracking-tight leading-none mt-4 text-gray-900 dark:text-white" id="ninis-title-brand">
+                            Hi, I am <br><span class="font-bold text-gold-600 dark:text-gold-400" id="ninis-fullname-holder">Ninis</span> Twumasi
                         </h1>
-                        <p class="text-base md:text-lg font-light tracking-wide mt-2 text-gold-600 dark:text-gold-300" id="ninis-subtitle-brand">
+                        <p class="text-sm md:text-base font-light tracking-wide mt-2 text-gold-700 dark:text-gold-300" id="ninis-subtitle-brand">
                             Sophomore &amp; CS Student at The Browning School
                         </p>
-                        <p class="leading-relaxed text-xs md:text-sm font-light mt-4 text-gray-800 dark:text-gray-300" id="ninis-desc-brand">
+                        <p class="leading-relaxed text-xs font-light mt-3 text-gray-800 dark:text-gray-300" id="ninis-desc-brand">
                             Welcome to my personal archive. This platform represents who I am, a 15-year-old student from Manhattan, NYC, doing my best to make an impact both in and out of the classroom.
                         </p>
                         
                         <!-- Hero Actions -->
-                        <div class="flex flex-wrap gap-4 pt-4 no-print font-sans">
-                            <button onclick="navigateTo('page-about')" class="px-8 py-3.5 bg-gold-500 hover:bg-gold-600 text-apple-dark text-xs font-bold uppercase tracking-wider rounded-full shadow-lg hover:shadow-gold-500/20 transition flex items-center gap-2 font-semibold">
+                        <div class="flex flex-wrap gap-3.5 pt-4 no-print font-sans">
+                            <button onclick="navigateTo('page-about')" class="px-6 py-3 bg-gold-500 hover:bg-gold-600 text-apple-dark text-xs font-bold uppercase tracking-wider rounded-full shadow-lg hover:shadow-gold-500/20 transition flex items-center gap-1.5 font-semibold">
                                 Explore About Me <i class="fa-solid fa-arrow-right"></i>
                             </button>
-                            <button onclick="shuffleBackground()" class="px-6 py-3.5 bg-white/90 dark:bg-zinc-900/90 backdrop-blur text-gold-600 dark:text-gold-400 border border-gold-200 dark:border-zinc-800 hover:border-gold-500 text-xs font-bold uppercase tracking-wider rounded-full transition flex items-center gap-2 shadow-sm font-semibold">
+                            <button onclick="shuffleBackground()" class="px-5 py-3 bg-white/95 dark:bg-zinc-900/90 backdrop-blur text-gold-600 dark:text-gold-400 border border-gold-200 dark:border-zinc-800 hover:border-gold-500 text-xs font-bold uppercase tracking-wider rounded-full transition flex items-center gap-1.5 shadow-sm">
                                 <i class="fa-solid fa-wand-magic-sparkles"></i> Shuffle Background
                             </button>
                         </div>
@@ -430,8 +429,8 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         <div class="bg-white dark:bg-apple-zinc border border-gold-200/40 dark:border-zinc-800 rounded-3xl p-6 flex flex-col justify-between">
                             <div class="space-y-4">
                                 <div class="rounded-2xl overflow-hidden relative shadow-md aspect-[4/3] bg-zinc-900">
-                                    <!-- Displays Running Action Shot image.png inside the Codespace repository (Using object-top to prevent head crop) -->
-                                    <img src="image.png" alt="Varsity Track Action Shot" class="w-full h-full object-cover object-top" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
+                                    <!-- Displays Running Action Shot image.png inside the Codespace repository (Using object-center to restore standard layout) -->
+                                    <img src="image.png" alt="Varsity Track Action Shot" class="w-full h-full object-cover object-center" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
                                     <div class="hidden absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-gold-900 via-apple-dark to-black text-center p-6 text-white">
                                         <i class="fa-solid fa-person-running text-gold-500 text-4xl mb-3 animate-pulse"></i>
                                         <h4 class="font-serif text-lg font-bold text-gold-300">Varsity Track</h4>
@@ -960,9 +959,9 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     
                     // Reset text block back to elegant semi-transparent glass styling so pictures are visible through it!
                     if (heroTextBlock) {
-                        heroTextBlock.className = "lg:col-span-7 space-y-6 bg-white/20 dark:bg-black/35 p-6 md:p-8 rounded-3xl border border-white/25 dark:border-white/10 shadow-2xl relative z-10 transition-all duration-500 backdrop-blur-md text-gray-900 dark:text-white";
+                        heroTextBlock.className = "lg:col-span-7 space-y-6 bg-white/5 dark:bg-black/20 p-6 md:p-8 rounded-3xl border border-white/10 shadow-2xl relative z-10 transition-all duration-500 backdrop-blur-sm text-gray-900 dark:text-white";
                     }
-                    if (heroTitle) heroTitle.innerHTML = 'Hi, I am <br><span class="font-bold text-gold-500 dark:text-gold-300">Ninis</span> Twumasi';
+                    if (heroTitle) heroTitle.innerHTML = 'Hi, I am <br><span class="font-bold text-gold-500 dark:text-gold-400">Ninis</span> Twumasi';
                     if (heroSubtitle) heroSubtitle.className = "text-lg md:text-xl font-light tracking-wide mt-2 text-gold-600 dark:text-gold-300";
                     if (heroDescription) heroDescription.className = "leading-relaxed max-w-xl text-sm font-light mt-4 text-gray-800 dark:text-gray-300";
                     
@@ -973,9 +972,9 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     // Apply image backgrounds
                     hero.style.backgroundImage = backgrounds[currentBgIndex];
                     hero.style.backgroundSize = "cover";
-                    // PROCESS: Set background position to custom center-top alignment.
-                    // Resolves cropping issues on landscape viewports by centering focus directly on faces and sunglasses.
-                    hero.style.backgroundPosition = "center 22%";
+                    // PROCESS: Set background position to standard centering alignment.
+                    // This resolves the cropping issues from center-top alignment.
+                    hero.style.backgroundPosition = "center center";
                     
                     // Verify if local image successfully loaded, if not, use premium backup fallback
                     const testImg = new Image();
