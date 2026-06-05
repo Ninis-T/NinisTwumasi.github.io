@@ -205,7 +205,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             </div>
 
             <!-- PAGE 1: HOME PAGE (Active by default) -->
-            <section id="page-home" class="page-container flex-1 bg-transition relative flex items-center py-16 md:py-24 min-h-[88vh] bg-gold-50 dark:bg-apple-dark">
+            <section id="page-home" class="page-container flex-1 bg-transition relative flex items-start justify-start py-16 md:py-32 min-h-[88vh] bg-gold-50 dark:bg-apple-dark">
                 
                 <!-- 
                   PROCESS: HIGH-RESOLUTION VECTOR MONOGRAM OVERLAY
@@ -229,15 +229,14 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                 </div>
 
                 <!-- Inner Content Container -->
-                <div class="max-w-6xl mx-auto px-6 w-full flex flex-col lg:flex-row justify-between items-center gap-12 relative z-10">
+                <div class="max-w-6xl mx-auto px-6 w-full relative z-10">
                     
                     <!-- 
-                      PROCESS: HERO TEXT BLOCK WITH ULTRA-TRANSPARENT GLASS OVERLAY
-                      We align this cleanly to the top-left of the display.
-                      It is wrapped in a high-transparency frosted glass panel so that your portrait
-                      and background photos are fully visible underneath!
+                      PROCESS: HERO TEXT BLOCK REMOVED BORDER CONTAINER
+                      The box background, borders, shadow, and backdrop blurs have been fully removed.
+                      The text now floats purely and transparently in the top-left quadrant of the screen.
                     -->
-                    <div class="max-w-lg p-6 md:p-8 rounded-3xl bg-white/5 dark:bg-black/20 backdrop-blur-sm border border-white/10 shadow-xl transition-all duration-500 self-start mt-4 lg:mt-0" id="ninis-home-text-container">
+                    <div class="max-w-lg transition-all duration-500 mt-4 lg:mt-0 drop-shadow-lg" id="hero-text-block">
                         <div class="inline-flex items-center gap-2 bg-white/95 dark:bg-gold-950/40 text-gold-700 dark:text-gold-400 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border border-gold-200/50">
                             <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
                             Browning Sophomore
@@ -247,13 +246,13 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                           PROCESS: CRITICAL CUSTOM VALUE FIX
                           Completely removed all customizer classes (display-firstName etc.) so the parent iframe cannot empty this text node on load.
                         -->
-                        <h1 class="text-4xl sm:text-5xl font-serif font-light tracking-tight leading-none mt-4 text-gray-900 dark:text-white" id="ninis-title-brand">
+                        <h1 class="text-4xl sm:text-5xl font-serif font-light tracking-tight leading-none mt-4 text-gray-900 dark:text-white" id="hero-title">
                             Hi, I am <br><span class="font-bold text-gold-600 dark:text-gold-400" id="ninis-fullname-holder">Ninis</span> Twumasi
                         </h1>
-                        <p class="text-sm md:text-base font-light tracking-wide mt-2 text-gold-700 dark:text-gold-300" id="ninis-subtitle-brand">
+                        <p class="text-sm md:text-base font-light tracking-wide mt-2 text-gold-700 dark:text-gold-300" id="hero-subtitle">
                             Sophomore &amp; CS Student at The Browning School
                         </p>
-                        <p class="leading-relaxed text-xs font-light mt-3 text-gray-800 dark:text-gray-300" id="ninis-desc-brand">
+                        <p class="leading-relaxed text-xs font-light mt-3 text-gray-800 dark:text-gray-300" id="hero-description">
                             Welcome to my personal archive. This platform represents who I am, a 15-year-old student from Manhattan, NYC, doing my best to make an impact both in and out of the classroom.
                         </p>
                         
@@ -265,27 +264,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                             <button onclick="shuffleBackground()" class="px-5 py-3 bg-white/95 dark:bg-zinc-900/90 backdrop-blur text-gold-600 dark:text-gold-400 border border-gold-200 dark:border-zinc-800 hover:border-gold-500 text-xs font-bold uppercase tracking-wider rounded-full transition flex items-center gap-1.5 shadow-sm">
                                 <i class="fa-solid fa-wand-magic-sparkles"></i> Shuffle Background
                             </button>
-                        </div>
-                    </div>
-
-                    <!-- Right Portrait Picture Frame with strict aspect constraints to avoid blur -->
-                    <div class="w-full lg:w-auto flex justify-center z-10" id="hero-image-block">
-                        <div class="relative group max-w-sm w-full lg:w-80">
-                            <div class="absolute -inset-1.5 bg-gradient-to-tr from-gold-400 via-gold-200 to-white rounded-3xl blur opacity-30 group-hover:opacity-45 transition duration-1000"></div>
-                            <div class="relative bg-white dark:bg-zinc-950 p-3 rounded-3xl border border-gold-200/30 dark:border-zinc-800/80 shadow-2xl">
-                                <div class="aspect-square w-full rounded-2xl overflow-hidden bg-gold-100/50 dark:bg-zinc-900 relative">
-                                    <!-- Displays Ninis' uploaded high-resolution original portrait image -->
-                                    <img src="IMG_0594.jpg" alt="Ninis Twumasi Portrait" class="w-full h-full object-cover object-center" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')">
-                                    <!-- Fallback design icon if local file isn't loaded -->
-                                    <div class="hidden absolute inset-0 flex items-center justify-center bg-zinc-900">
-                                        <i class="fa-solid fa-user-tie text-gold-500 text-6xl"></i>
-                                    </div>
-                                    <div class="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur-md rounded-xl p-3 border border-white/10 text-white text-xs font-sans">
-                                        <p class="font-semibold tracking-wide text-gold-400 text-xs">The Browning School</p>
-                                        <p class="text-[10px] text-zinc-300 font-mono mt-0.5">Manhattan, NYC</p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -359,7 +337,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             <section id="page-resume" class="page-container flex-1 py-20 bg-gold-100/30 dark:bg-apple-dark/60 transition-colors hidden">
                 <div class="max-w-6xl mx-auto px-6">
                     <div class="text-center max-w-2xl mx-auto mb-12">
-                        <span class="text-[10px] font-bold text-gold-500 uppercase tracking-widest">Academic & Activity Curriculum</span>
+                        <span class="text-[10px] font-bold text-gold-500 uppercase tracking-test">Academic & Activity Curriculum</span>
                         <h2 class="text-4xl font-serif font-light tracking-tight text-gray-900 dark:text-white mt-2">Resume & Experience</h2>
                         <div class="w-12 h-[2px] bg-gold-400 mx-auto rounded mt-3"></div>
                         <p class="text-sm text-gray-400 mt-2">Sophomore at The Browning School, Dedicated to academic excellence and leadership.</p>
@@ -830,13 +808,13 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         <div class="bg-gold-50 dark:bg-apple-zinc p-6 rounded-2xl border border-gold-200/30 text-center space-y-2">
                             <i class="fa-solid fa-envelope text-gold-500 text-2xl"></i>
                             <h4 class="font-semibold text-xs uppercase tracking-wider text-gray-500">Work Email</h4>
-                            <p class="text-sm font-semibold text-gold-600 dark:text-gold-400 break-all select-all font-mono">ntwumasi@browning.edu</p>
+                            <p class="text-sm font-semibold text-gold-600 dark:text-gold-400 break-all select-all font-mono font-bold">ntwumasi@browning.edu</p>
                         </div>
                         <!-- Personal Email -->
                         <div class="bg-gold-50 dark:bg-apple-zinc p-6 rounded-2xl border border-gold-200/30 text-center space-y-2">
                             <i class="fa-solid fa-envelope-open text-gold-500 text-2xl"></i>
                             <h4 class="font-semibold text-xs uppercase tracking-wider text-gray-500">Personal Email</h4>
-                            <p class="text-sm font-semibold text-gold-600 dark:text-gold-400 break-all select-all font-mono">ninist2010@gmail.com</p>
+                            <p class="text-sm font-semibold text-gold-600 dark:text-gold-400 break-all select-all font-mono font-bold">ninist2010@gmail.com</p>
                         </div>
                         <!-- LinkedIn -->
                         <div class="bg-gold-50 dark:bg-apple-zinc p-6 rounded-2xl border border-gold-200/30 text-center space-y-2">
@@ -905,13 +883,13 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
         // Config 0: IMG_7196 (1).jpg (Pristine background shot)
         // Config 1: IMG_5906 (1).jpg (Pristine group suit shot)
         // Config 2: IMG_9551.jpg (Pristine glasses shot)
-        // Config 3: IMG_7204.jpg (Pristine suit alignment shot)
+        // Config 3: IMG_7204.JPG (Pristine suit alignment shot - Corrected uppercase casing extension)
         // Config 4: Glowing gold "NT" monogram on a black background
         const backgrounds = [
             "url('IMG_7196%20(1).jpg')", 
             "url('IMG_5906%20(1).jpg')", 
             "url('IMG_9551.jpg')",
-            "url('IMG_7204.jpg')",
+            "url('IMG_7204.JPG')",
             "none"
         ];
 
@@ -1172,27 +1150,6 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             } else {
                 document.documentElement.classList.remove('dark');
             }
-        }
-
-        // Form submission: Compiles inputs and launches local mail clients dynamically
-        function handleContactSubmit(event) {
-            event.preventDefault();
-            const name = document.getElementById('contact-name').value;
-            const visitorEmail = document.getElementById('contact-email').value;
-            const subject = document.getElementById('contact-subject').value;
-            const message = document.getElementById('contact-message').value;
-
-            const mailtoLink = `mailto:ntwumasi@browning.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Sender Name: " + name + "\nSender Email: " + visitorEmail + "\n\nMessage:\n" + message)}`;
-            
-            const success = document.getElementById('contact-success');
-            success.classList.remove('hidden');
-            event.target.reset();
-            
-            // Redirect window location to launch native email client
-            setTimeout(() => {
-                window.location.href = mailtoLink;
-                success.classList.add('hidden');
-            }, 1000);
         }
 
         // PROCESS: Defensive script running to prevent external scripts from wiping out Ninis' name
