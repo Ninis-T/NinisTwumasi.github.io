@@ -142,7 +142,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
               A sleek frosted glass navigation header that stays sticky at the top 
               of the viewport and allows users to jump between sections instantly.
             -->
-            <header class="bg-white/90 dark:bg-apple-dark/90 backdrop-blur-md border-b border-gold-200/20 dark:border-zinc-900 sticky top-0 z-30 transition-colors no-print">
+            <header class="bg-white/90 dark:bg-apple-dark/90 backdrop-blur-md border-b border-gold-200/20 dark:border-zinc-900 sticky top-0 z-30 transition-colors no-print font-sans">
                 <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
                     <a href="#" onclick="navigateTo('page-home')" class="flex items-center gap-1.5 hover:opacity-85 transition text-gold-600 dark:text-gold-400">
                         <span class="font-serif italic font-semibold text-gold-500 dark:text-gold-400 tracking-wide text-xl">NinisT</span>
@@ -180,7 +180,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
               Covers the page it is on with a sleek blurred glass backdrop. 
               Provides a beautiful navigation experience.
             -->
-            <div id="full-menu-overlay" class="fixed inset-0 bg-white/98 dark:bg-apple-dark/98 backdrop-blur-2xl z-50 flex flex-col justify-between p-8 transition-all duration-500 opacity-0 pointer-events-none scale-95 no-print">
+            <div id="full-menu-overlay" class="fixed inset-0 bg-white/98 dark:bg-apple-dark/98 backdrop-blur-2xl z-50 flex flex-col justify-between p-8 transition-all duration-500 opacity-0 pointer-events-none scale-95 no-print font-sans">
                 <div class="flex justify-between items-center max-w-6xl w-full mx-auto">
                     <span class="font-serif italic font-semibold text-2xl tracking-wide text-gold-600 dark:text-gold-400">NinisT</span>
                     <button onclick="closeMenuOverlay()" class="w-12 h-12 rounded-full border border-gold-200/50 dark:border-zinc-850 flex items-center justify-center text-gray-500 hover:text-gold-500 dark:hover:text-gold-400 transition hover:rotate-90">
@@ -205,7 +205,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             </div>
 
             <!-- PAGE 1: HOME PAGE (Active by default) -->
-            <section id="page-home" class="page-container flex-1 bg-transition relative flex items-center py-16 md:py-28 min-h-[85vh] bg-gold-50 dark:bg-apple-dark">
+            <section id="page-home" class="page-container flex-1 bg-transition relative flex items-center py-16 md:py-24 min-h-[88vh] bg-gold-50 dark:bg-apple-dark">
                 
                 <!-- 
                   PROCESS: HIGH-RESOLUTION VECTOR MONOGRAM OVERLAY
@@ -229,42 +229,49 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                 </div>
 
                 <!-- Inner Content Container -->
-                <div class="max-w-6xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                <div class="max-w-6xl mx-auto px-6 w-full flex flex-col lg:flex-row justify-between items-center gap-12 relative z-10">
                     
                     <!-- 
-                      PROCESS: HERO TEXT BLOCK WITH FROSTED GLASS OVERLAY
-                      We wrap this in a translucent backdrop card so that the text is 
-                      perfectly readable, regardless of the shuffling background image.
+                      PROCESS: HERO TEXT BLOCK WITH ULTRA-TRANSPARENT GLASS OVERLAY
+                      We align this cleanly on the left. The transparent frosted card styling
+                      ensures that Ninis' portrait on the right and background shuffle shots are
+                      completely visible, while maintaining crisp contrast and perfect legibility.
                     -->
-                    <div class="lg:col-span-7 p-6 md:p-8 rounded-3xl backdrop-blur-md transition-all duration-500" id="hero-text-block">
+                    <div class="max-w-xl p-6 md:p-8 rounded-3xl bg-white/20 dark:bg-black/35 backdrop-blur-md border border-white/25 dark:border-white/10 shadow-xl transition-all duration-500 self-start lg:self-center" id="ninis-home-text-container">
                         <div class="inline-flex items-center gap-2 bg-white/90 dark:bg-gold-950/20 text-gold-700 dark:text-gold-400 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border border-gold-200/50">
                             <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
                             Browning Sophomore
                         </div>
-                        <h1 class="text-5xl sm:text-7xl font-serif font-light tracking-tight leading-none mt-4 animate-fade-in" id="hero-title">
-                            Hi, I am <br><span class="font-bold text-gold-500 dark:text-gold-400">Ninis</span> Twumasi
+                        
+                        <!-- 
+                          PROCESS: CRITICAL PREV-OVERRIDE FIX
+                          We use a completely unique, customized ID ('ninis-title-brand') to bypass 
+                          and lock out any residual parental customizer scripts from clearing Ninis' name.
+                        -->
+                        <h1 class="text-4xl sm:text-6xl font-serif font-light tracking-tight leading-none mt-4 text-gray-900 dark:text-white" id="ninis-title-brand">
+                            Hi, I am <br><span class="font-bold text-gold-500 dark:text-gold-400" id="ninis-fullname-holder">Ninis</span> Twumasi
                         </h1>
-                        <p class="text-lg md:text-xl font-light tracking-wide mt-2" id="hero-subtitle">
+                        <p class="text-base md:text-lg font-light tracking-wide mt-2 text-gold-600 dark:text-gold-300" id="ninis-subtitle-brand">
                             Sophomore &amp; CS Student at The Browning School
                         </p>
-                        <p class="leading-relaxed max-w-xl text-sm font-light mt-4" id="hero-description">
+                        <p class="leading-relaxed text-xs md:text-sm font-light mt-4 text-gray-800 dark:text-gray-300" id="ninis-desc-brand">
                             Welcome to my personal archive. This platform represents who I am, a 15-year-old student from Manhattan, NYC, doing my best to make an impact both in and out of the classroom.
                         </p>
                         
                         <!-- Hero Actions -->
-                        <div class="flex flex-wrap gap-4 pt-4 no-print">
-                            <button onclick="navigateTo('page-about')" class="px-8 py-3.5 bg-gold-500 hover:bg-gold-600 text-apple-dark text-xs font-bold uppercase tracking-wider rounded-full shadow-lg hover:shadow-gold-500/20 transition flex items-center gap-2 font-sans">
+                        <div class="flex flex-wrap gap-4 pt-4 no-print font-sans">
+                            <button onclick="navigateTo('page-about')" class="px-8 py-3.5 bg-gold-500 hover:bg-gold-600 text-apple-dark text-xs font-bold uppercase tracking-wider rounded-full shadow-lg hover:shadow-gold-500/20 transition flex items-center gap-2 font-semibold">
                                 Explore About Me <i class="fa-solid fa-arrow-right"></i>
                             </button>
-                            <button onclick="shuffleBackground()" class="px-6 py-3.5 bg-white/90 dark:bg-zinc-900/90 backdrop-blur text-gold-600 dark:text-gold-400 border border-gold-200 dark:border-zinc-800 hover:border-gold-500 text-xs font-bold uppercase tracking-wider rounded-full transition flex items-center gap-2 shadow-sm font-sans">
+                            <button onclick="shuffleBackground()" class="px-6 py-3.5 bg-white/90 dark:bg-zinc-900/90 backdrop-blur text-gold-600 dark:text-gold-400 border border-gold-200 dark:border-zinc-800 hover:border-gold-500 text-xs font-bold uppercase tracking-wider rounded-full transition flex items-center gap-2 shadow-sm font-semibold">
                                 <i class="fa-solid fa-wand-magic-sparkles"></i> Shuffle Background
                             </button>
                         </div>
                     </div>
 
                     <!-- Right Portrait Picture Frame with strict aspect constraints to avoid blur -->
-                    <div class="lg:col-span-5 w-full flex justify-center z-10" id="hero-image-block">
-                        <div class="relative group max-w-sm w-full">
+                    <div class="w-full lg:w-auto flex justify-center z-10" id="hero-image-block">
+                        <div class="relative group max-w-sm w-full lg:w-80">
                             <div class="absolute -inset-1.5 bg-gradient-to-tr from-gold-400 via-gold-200 to-white rounded-3xl blur opacity-30 group-hover:opacity-45 transition duration-1000"></div>
                             <div class="relative bg-white dark:bg-zinc-950 p-3 rounded-3xl border border-gold-200/30 dark:border-zinc-800/80 shadow-2xl">
                                 <div class="aspect-square w-full rounded-2xl overflow-hidden bg-gold-100/50 dark:bg-zinc-900 relative">
@@ -363,7 +370,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                           Replaced previous PDF print function with a beautifully styled direct link 
                           to your actual Google Doc Resume. Opens elegantly in a new tab.
                         -->
-                        <div class="mt-6 flex justify-center no-print">
+                        <div class="mt-6 flex justify-center no-print font-sans">
                             <a href="https://docs.google.com/document/d/1_xEiqBpSxp41RFDEtBHdz8Zk_Y3X_Y7rGdQGUwRF_eA/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 bg-gold-500 hover:bg-gold-600 text-apple-dark font-semibold text-xs rounded-full uppercase tracking-wider shadow-md transition duration-300 flex items-center gap-2 font-sans font-semibold">
                                 <i class="fa-solid fa-file-invoice"></i> View My Google Doc Resume
                             </a>
@@ -663,7 +670,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                         <p class="text-sm text-gray-600 dark:text-zinc-300 mt-2 leading-relaxed font-light max-w-xl mx-auto" id="skill-portal-body">Click a card to load information.</p>
                         
                         <!-- Dynamic Link/Download Node attached directly inside Skill description portal -->
-                        <div id="skill-portal-action" class="mt-4 pt-4 border-t border-gold-200/50 dark:border-zinc-800 hidden flex flex-wrap gap-3 justify-center">
+                        <div id="skill-portal-action" class="mt-4 pt-4 border-t border-gold-200/50 dark:border-zinc-800 hidden flex flex-wrap gap-3 justify-center font-sans">
                             <!-- Populated dynamically via JS -->
                         </div>
                     </div>
@@ -678,7 +685,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <div onclick="showSkillDescription('Python Coding', 'Python Coding: Developed a strong foundation in computational thinking, covering variable manipulation, logical structures (if/else), iterative loops, and basic algorithm design. I apply these logical principles to solve algebraic challenges and structure algorithmic solutions in my coursework.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-mono font-semibold text-gray-800 dark:text-gray-200">Python Coding</span>
-                                        <span class="font-bold text-[10px] text-gold-500">Click to view</span>
+                                        <span class="font-bold text-[10px] text-gold-500 font-sans">Click to view</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 75%;"></div>
@@ -688,7 +695,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <div onclick="showSkillDescription('HTML Structure', 'HTML & CSS Structure: Mastered clean webpage layout, custom styled containers, responsive layouts, and user interactions. By self-coding this entire responsive portfolio, I have gained hands-on expertise with DOM hierarchies, Tailwind Utility classes, and modern layout conventions.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-mono font-medium text-gray-800 dark:text-gray-200">HTML Structure</span>
-                                        <span class="font-bold text-[10px] text-gold-500">Click to view</span>
+                                        <span class="font-bold text-[10px] text-gold-500 font-sans">Click to view</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 85%;"></div>
@@ -698,7 +705,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <div onclick="showSkillDescription('Onshape CAD Program', '3D CAD Modeling: Skilled in structural planning, mechanical drafting, and rendering accurate physical objects in 3D using Onshape. This covers complex geometric assemblies, coordinate constraints, and preparing architectural models—like my custom 3D Steps and Keychains—for precise 3D printing outputs.', 'cad')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-mono font-medium text-gray-800 dark:text-gray-200">Onshape CAD Program</span>
-                                        <span class="font-bold text-[10px] text-gold-500">Click to view</span>
+                                        <span class="font-bold text-[10px] text-gold-500 font-sans">Click to view</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 80%;"></div>
@@ -708,7 +715,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <div onclick="showSkillDescription('Creative Journalism', 'Creative Journalism: Highly experienced in drafting investigative reviews, editing articles, and interviewing subjects. Developed a robust personal narrative style to share information on community-focused current events. My published articles appear on Time for Kids and our Upper School Newspaper, Grytte.', 'journalism')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-mono font-medium text-gray-800 dark:text-gray-200">Creative Journalism</span>
-                                        <span class="font-bold text-[10px] text-gold-500">Click to view</span>
+                                        <span class="font-bold text-[10px] text-gold-500 font-sans">Click to view</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 90%;"></div>
@@ -727,7 +734,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <div onclick="showSkillDescription('French Language', 'French Language (French 3): Developed intermediate linguistic capabilities through my coursework up to French 3. Includes solid oral comprehension, grammatical precision, reading fluency, and cultural awareness of the French-speaking world.')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-medium text-gray-800 dark:text-gray-200">French (Language)</span>
-                                        <span class="font-bold text-[10px] text-gold-500">French 3</span>
+                                        <span class="font-bold text-[10px] text-gold-500 font-sans">French 3</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 65%;"></div>
@@ -737,7 +744,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <div onclick="showSkillDescription('Public Speaking & Debate', 'Debate & Public Speaking: Refined rhetorical arguments, confident physical presence, and fast analytical thinking under strict timers. Developed through competitive school debate formats and Mock Trial courtroom litigation as an advocate, allowing me to speak persuasively before diverse panels.', 'speaking')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-medium text-gray-800 dark:text-gray-200">Public Speaking</span>
-                                        <span class="font-bold text-[10px] text-gold-500">Click to view</span>
+                                        <span class="font-bold text-[10px] text-gold-500 font-sans">Click to view</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 95%;"></div>
@@ -747,7 +754,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <div onclick="showSkillDescription('Research & Fact-Checking', 'Research & Fact-Checking: Highly trained in verifying sources, analyzing database statistics, cross-referencing claims, and keeping track of complex facts. Vital for framing logical positions in debate and verifying scientific claims against misinformation.', 'barcoding')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-medium text-gray-800 dark:text-gray-200">Research &amp; Fact-Checking</span>
-                                        <span class="font-bold text-[10px] text-gold-500">Click to view</span>
+                                        <span class="font-bold text-[10px] text-gold-500 font-sans">Click to view</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 90%;"></div>
@@ -757,7 +764,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <div onclick="showSkillDescription('Scientific Writing', 'Scientific Writing: Expert in presenting experimental methodology, organizing abstract layouts, and drafting formal research papers. Proven through published biodiversity sequencing data in the NYC Urban Barcoding project.', 'barcoding')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span class="font-medium text-gray-800 dark:text-gray-200">Scientific Writing</span>
-                                        <span class="font-bold text-[10px] text-gold-500">Urban Barcoding</span>
+                                        <span class="font-bold text-[10px] text-gold-500 font-sans">Urban Barcoding</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 80%;"></div>
@@ -776,7 +783,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <div onclick="showSkillDescription('Community Organizing', 'Community Organizing: Highly skilled in project planning, event coordinating, and volunteer logistics. Demonstrated by founding Browning’s Food Recovery Program in cooperation with Grassroots Grocery, coordinating food distribution networks, and heading clean team environmental fundraisers.', 'food')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span>Community Organizing</span>
-                                        <span class="font-bold text-[10px] text-gold-500">Active</span>
+                                        <span class="font-bold text-[10px] text-gold-500 font-sans">Active</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 95%;"></div>
@@ -786,7 +793,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <div onclick="showSkillDescription('Team Leadership', 'Team Leadership: Proficient in managing group morale, delegating tasks, and running instructional programs. Applied as Soccer JV Captain motivating teammates, on Class Council representational planning, and as an upcoming KenMont & KenWood Camp Counselor leading youth activities.', 'camp')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span>Team Leadership</span>
-                                        <span class="font-bold text-[10px] text-gold-500">Active</span>
+                                        <span class="font-bold text-[10px] text-gold-500 font-sans">Active</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 90%;"></div>
@@ -796,7 +803,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                                 <div onclick="showSkillDescription('Advocacy', 'Advocacy & Mediation: Passionate about serving as an active voice for my peers, representing student concerns to the faculty, and organizing forums. Exercised as our grade’s Class Representative and Browning’s student voice on the NYC-wide Black Student Coalition.', 'coalition')" class="p-2 hover:bg-gold-200/10 rounded-lg">
                                     <div class="flex justify-between text-xs mb-1">
                                         <span>Advocacy &amp; Mediation</span>
-                                        <span class="font-bold text-[10px] text-gold-500">Driven</span>
+                                        <span class="font-bold text-[10px] text-gold-500 font-sans">Driven</span>
                                     </div>
                                     <div class="w-full bg-gold-200/30 dark:bg-zinc-800 h-[3px] rounded-full overflow-hidden">
                                         <div class="bg-gold-500 h-full rounded-full" style="width: 88%;"></div>
@@ -873,7 +880,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                             </div>
 
                             <!-- Form send button -->
-                            <button type="submit" class="w-full py-3 bg-gold-500 hover:bg-gold-600 text-apple-dark font-semibold rounded-full transition shadow-md hover:shadow-gold-500/10 flex items-center justify-center gap-2 font-sans font-bold">
+                            <button type="submit" class="w-full py-3 bg-gold-500 hover:bg-gold-600 text-apple-dark font-semibold rounded-full transition shadow-md hover:shadow-gold-500/10 flex items-center justify-center gap-2 font-sans">
                                 <i class="fa-solid fa-paper-plane text-xs"></i> Send Message
                             </button>
                         </form>
@@ -895,19 +902,15 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
     </div>
 
     <script>
-        // Array of background styling configurations:
+        // Array of background styling configurations (Polished to exclude desert and poorly cropped options):
         // Config 0: IMG_1327.jpg (Uploaded)
         // Config 1: IMG_1558.jpg (Uploaded)
         // Config 2: IMG_5906.jpg (Uploaded)
-        // Config 3: IMG_7204.jpg (Uploaded)
-        // Config 4: IMG_9551.jpg (Uploaded)
-        // Config 5: Glowing gold "NT" monogram on a black background
+        // Config 3: Glowing gold "NT" monogram on a black background
         const backgrounds = [
             "url('IMG_1327.jpg')", 
             "url('IMG_1558.jpg')", 
             "url('IMG_5906.jpg')",
-            "url('IMG_7204.jpg')",
-            "url('IMG_9551.jpg')",
             "none"
         ];
 
@@ -932,8 +935,8 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
             const heroDescription = document.getElementById("hero-description");
             
             if (hero && ntBg) {
-                // If it is option index 5 (the custom NT Monogram black background)
-                if (currentBgIndex === 5) {
+                // If it is option index 3 (the custom NT Monogram black background)
+                if (currentBgIndex === 3) {
                     hero.style.backgroundImage = "none";
                     hero.style.backgroundColor = "#000000";
                     ntBg.classList.remove("opacity-0");
@@ -943,7 +946,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     if (heroTextBlock) {
                         heroTextBlock.className = "lg:col-span-7 space-y-6 bg-black/60 p-6 md:p-8 rounded-3xl border border-white/10 shadow-2xl relative z-10 transition-all duration-500 backdrop-blur-md text-white";
                     }
-                    if (heroTitle) heroTitle.className = "text-5xl sm:text-7xl font-serif font-light tracking-tight leading-none text-white mt-4";
+                    if (heroTitle) heroTitle.innerHTML = 'Hi, I am <br><span class="font-bold text-gold-500 dark:text-gold-400">Ninis</span> Twumasi';
                     if (heroSubtitle) heroSubtitle.className = "text-lg md:text-xl font-light tracking-wide mt-2 text-gold-300";
                     if (heroDescription) heroDescription.className = "leading-relaxed max-w-xl text-sm font-light mt-4 text-zinc-300";
                     
@@ -959,7 +962,7 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     if (heroTextBlock) {
                         heroTextBlock.className = "lg:col-span-7 space-y-6 bg-white/20 dark:bg-black/35 p-6 md:p-8 rounded-3xl border border-white/25 dark:border-white/10 shadow-2xl relative z-10 transition-all duration-500 backdrop-blur-md text-gray-900 dark:text-white";
                     }
-                    if (heroTitle) heroTitle.className = "text-5xl sm:text-7xl font-serif font-light tracking-tight leading-none mt-4 text-gray-900 dark:text-white";
+                    if (heroTitle) heroTitle.innerHTML = 'Hi, I am <br><span class="font-bold text-gold-500 dark:text-gold-300">Ninis</span> Twumasi';
                     if (heroSubtitle) heroSubtitle.className = "text-lg md:text-xl font-light tracking-wide mt-2 text-gold-600 dark:text-gold-300";
                     if (heroDescription) heroDescription.className = "leading-relaxed max-w-xl text-sm font-light mt-4 text-gray-800 dark:text-gray-300";
                     
@@ -970,16 +973,16 @@ NINIS TWUMASI - THE BROWNING SCHOOL PORTFOLIO
                     // Apply image backgrounds
                     hero.style.backgroundImage = backgrounds[currentBgIndex];
                     hero.style.backgroundSize = "cover";
-                    // PROCESS: Adjust background vertical alignment to 15% (top-focused center alignment)
-                    // This guarantees that heads, faces, and sunglasses in vertical portrait photos are preserved and never cropped on wide landscape computer displays.
-                    hero.style.backgroundPosition = "center 15%";
+                    // PROCESS: Set background position to custom center-top alignment.
+                    // Resolves cropping issues on landscape viewports by centering focus directly on faces and sunglasses.
+                    hero.style.backgroundPosition = "center 22%";
                     
                     // Verify if local image successfully loaded, if not, use premium backup fallback
                     const testImg = new Image();
                     const path = backgrounds[currentBgIndex].replace("url('", "").replace("')", "");
                     testImg.src = path;
                     testImg.onerror = function() {
-                        if (currentBgIndex < 5) {
+                        if (currentBgIndex < 3) {
                             hero.style.backgroundImage = fallbacks[currentBgIndex % fallbacks.length];
                         }
                     };
